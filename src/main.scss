@@ -1,0 +1,18 @@
+// Налаштування (змінні та міксини)
+@use '/scss/utils/variables';
+@use '/scss/utils/mixins';
+
+// Базові стилі
+@use '/scss/base/reset';
+@use '/scss/base/base';
+@use '/scss/base/container';
+
+// Компоненти (секційна верстка)
+@use '/scss/components/header';
+@use '/scss/components/hero';
+@use '/scss/components/benefits';
+@use '/scss/components/products';
+@use '/scss/components/tutorial';
+@use '/scss/components/feedback';
+@use '/scss/components/footer';
+@use '/scss/components/modal';
