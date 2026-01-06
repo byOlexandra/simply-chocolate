@@ -37,11 +37,19 @@
             @include flex-center;
             gap: 48px;
         }
+
+        @media only screen and (min-width: $desktop) {
+            gap: 200px;
+        }
     }
 
     &__list {
         @include flex-center;
         gap: 24px;
+
+        @media only screen and (min-width: $desktop) {
+            gap: 60px;
+        }
     }
 
     &__list-a-item {
@@ -84,6 +92,12 @@
 
         fill: $white-clr;
         stroke: $black-clr;
+
+        transition: $trans-stroke;
+
+        &:hover {
+            stroke: $highlight;
+        }
     }
 
     &__burger-btn {
