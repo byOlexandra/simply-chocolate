@@ -44,6 +44,36 @@
         gap: 24px;
     }
 
+    &__list-a-item {
+        position: relative;
+        transition: $trans-color;
+
+        &::after {
+            content: '';
+            width: 100%;
+            height: 4px;
+            border-radius: 4px;
+            background-color: $highlight;
+
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transition: $trans-transform;
+
+            transform: scaleX(0);
+            transform-origin: bottom right;
+        }
+
+        &:hover {
+            color: $highlight;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left; 
+        }
+    }
+
     &__sm-list {
         @include flex-center;
         gap: 18px;

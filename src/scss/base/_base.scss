@@ -19,6 +19,21 @@
 html {
   padding: 20px;
   
+  scrollbar-color: $highlight;
+  scrollbar-width: thin;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $highlight;
+    border-radius: 10px;
+  }
+  
   @media only screen and (min-width: $tablet) {
     padding-top: 24px;
   }
