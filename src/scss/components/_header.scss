@@ -1,0 +1,21 @@
+@use '../utils/variables' as *;
+
+.nav-list {
+    display: $hidden;
+    
+    @media only screen and (min-width: $tablet) {
+        display: $visible;
+    }
+}
+
+.sm-icon {
+    fill: $white-clr;
+    stroke: $black-clr;                    
+}
+
+button {
+    .burger-icon {
+        stroke: $black-clr;
+    }
+}
+

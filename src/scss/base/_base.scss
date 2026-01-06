@@ -1,3 +1,5 @@
+@use '../utils/variables' as *;
+
 :root {
   --font-family: 'Montserrat', sans-serif;
   --bg-color: #ffffff;
@@ -17,4 +19,8 @@ body {
   font-family: var(--font-family);
   color: var(--color);
   background-color: var(--bg-color);
+}
+
+.hidden {
+  display: $hidden;
 }

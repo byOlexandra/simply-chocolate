@@ -1,5 +1,4 @@
-$tablet: 768px;
-$desktop: 1440px;
+@use '../utils/variables' as *;
 
 .container {
   min-width: 320px;
