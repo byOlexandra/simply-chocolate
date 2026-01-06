@@ -102,9 +102,7 @@
 
     &__burger-btn {
         @include flex-center;
-
-        background-color: transparent;
-        border: none;
+        @include btn-setting;
         width: 28px;
         height: 28px;
 

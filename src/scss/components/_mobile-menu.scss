@@ -1,0 +1,14 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.mm {
+    &__close-btn {
+        @include flex-center;
+        @include btn-setting;
+    }
+
+    &__close-icon {
+        fill: $white-clr;
+        stroke: $white-clr;
+    }
+}
