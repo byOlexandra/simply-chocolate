@@ -1,21 +1,61 @@
 @use '../utils/variables' as *;
+@use '../utils/mixins' as *;
 
-.nav-list {
-    display: $hidden;
+.nav {
+    @include flex-center;
+    justify-content: space-between;
     
-    @media only screen and (min-width: $tablet) {
-        display: $visible;
+    &__logo-header {
+        font-style: italic;
+        letter-spacing: 0.03em;
+        font-weight: 700;
+    
+        display: flex;
+        gap: 4px;
+        align-items: center;
+
+        @media only screen and (min-width: $tablet) {
+            font-size: 18px;
+            line-height: 0.9;
+        }
     }
-}
 
-.sm-icon {
-    fill: $white-clr;
-    stroke: $black-clr;                    
-}
+    &__logo-normal {
+        font-style: normal;
+        @media only screen and (min-width: $tablet) {
+            width: 24px;
+            height: 24px;
+        }
+    }
 
-button {
-    .burger-icon {
+    &__block {
+        display: $hidden;
+        
+        @media only screen and (min-width: $tablet) {
+            display: $visible;
+        }
+    }
+    
+    &__sm-icon {
+        fill: $white-clr;
         stroke: $black-clr;
     }
+
+    &__burger-btn {
+        @include flex-center;
+
+        background-color: transparent;
+        border: none;
+        width: 28px;
+        height: 28px;
+
+        @media only screen and (min-width: $tablet) {
+            display: $hidden;
+        }
+    }
+
+    &__burger-icon {
+        stroke: $black-clr;
+    }   
 }
 
