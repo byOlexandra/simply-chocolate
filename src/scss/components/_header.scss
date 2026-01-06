@@ -33,10 +33,25 @@
         
         @media only screen and (min-width: $tablet) {
             display: $visible;
+
+            @include flex-center;
+            gap: 48px;
         }
+    }
+
+    &__list {
+        @include flex-center;
+        gap: 24px;
+    }
+
+    &__sm-list {
+        @include flex-center;
+        gap: 18px;
     }
     
     &__sm-icon {
+        @include flex-center;
+
         fill: $white-clr;
         stroke: $black-clr;
     }

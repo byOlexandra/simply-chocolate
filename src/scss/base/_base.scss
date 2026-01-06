@@ -16,6 +16,14 @@
   --text-color: #fff;
 }
 
+html {
+  padding: 20px;
+  
+  @media only screen and (min-width: $tablet) {
+    padding-top: 24px;
+  }
+}
+
 body {
   font-family: var(--font-family);
   color: var(--color);
