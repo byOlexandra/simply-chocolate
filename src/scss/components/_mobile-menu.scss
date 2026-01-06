@@ -2,11 +2,38 @@
 @use '../utils/mixins' as *;
 
 .mm {
-    display: $hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--bg-color);
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-100%);
+    transition: $trans-all;
+
+    &.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    }
+
+    &__container {
+        @include flex-column;
+        position: relative;
+
+        height: 100%;
+    }
 
     &__close-btn {
         @include flex-center;
         @include btn-setting;
+
+        position: absolute;
+        top: 35px;
+        right: 18px;
     }
 
     &__close-icon {
@@ -15,18 +42,30 @@
     }
 
     &__block {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
     }
 
     &__list {
         display: flex;
         flex-direction: column;
+
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-right: auto
     }
 
     &__sm-list {
         @include flex-center;
         justify-content: flex-start;
+        margin-top: auto;
 
         fill: $black-clr;
         stroke: $white-clr;
+    }
+
+    @media only screen and (min-width: 768px) {
+        display: $hidden;
     }
 }

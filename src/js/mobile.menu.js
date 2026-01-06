@@ -5,6 +5,12 @@ export default function mobileMenu() {
 
     if (!menu) return;
 
-    open?.addEventListener('click', () => menu.classList.add('is-open'));
-    close?.addEventListener('click', () => menu.classList.remove('is-open')); 
+    open?.addEventListener('click', () => {
+        menu.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+    });
+    close?.addEventListener('click', () => {
+        menu.classList.remove('is-open');
+        document.body.style.overflow = '';
+    }); 
 } 

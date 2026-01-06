@@ -8,6 +8,10 @@ $visible: block;
 $tablet: 768px;
 $desktop: 1440px;
 
-$trans-transform: transform 0.5s ease-out;
-$trans-color: color 0.5s ease-out;
-$trans-stroke: stroke 0.5s ease-out;
+$trans-time: 0.5s;
+$trans-way: ease-in-out;
+
+$trans-transform: transform $trans-time $trans-way;
+$trans-color: color $trans-time $trans-way;
+$trans-stroke: stroke $trans-time $trans-way;
+$trans-all: all $trans-time $trans-way;
