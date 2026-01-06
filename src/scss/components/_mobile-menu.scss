@@ -2,6 +2,8 @@
 @use '../utils/mixins' as *;
 
 .mm {
+    display: $hidden;
+
     &__close-btn {
         @include flex-center;
         @include btn-setting;
@@ -9,6 +11,22 @@
 
     &__close-icon {
         fill: $white-clr;
+        stroke: $black-clr;
+    }
+
+    &__block {
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__sm-list {
+        @include flex-center;
+        justify-content: flex-start;
+
+        fill: $black-clr;
         stroke: $white-clr;
     }
 }
