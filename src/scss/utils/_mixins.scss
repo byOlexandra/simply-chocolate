@@ -29,3 +29,30 @@
     background-color: transparent;
     border: none;
 }
+
+@mixin title1Mob {
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: -3%;
+    width: 299px;
+    font-weight: 500;
+}
+
+@mixin titleTab {
+    font-size: 28px;
+}
+
+@mixin btnSet {
+    border-color: transparent;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 14px;
+    color: $white-clr;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 120px;
+    padding: 12px 28px;
+}

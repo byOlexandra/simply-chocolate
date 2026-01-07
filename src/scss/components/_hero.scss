@@ -1,0 +1,78 @@
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.hero {
+    width: 335px;
+    height: 620px;
+    border-radius: 30px;
+    margin-top: 40px;
+    padding: 20px;
+    box-sizing: border-box;
+
+    color: $white-clr;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 32px;
+
+    &__title {
+        @include title1Mob;
+    }
+
+    &__list {
+        @include flex-center;
+        gap: 30px;
+
+        &>li:last-child {
+            .hero__btn {
+                width: 159px;
+            }
+        }
+    }
+
+    &__btn {
+        @include btnSet;
+    }
+
+    background-color: $highlight;
+    background-image: url(/img/hero/hero-mobile.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media only screen and (min-resolution: 192dpi) {
+        background-image: url(/img/hero/hero-mobile@2x.webp);
+    }
+
+    @media only screen and (min-width: 768px) {
+        width: 704px;
+        height: 890px;
+        padding: 40px;
+        margin-top: 40px;
+
+        &__title {
+            font-size: 28px;
+            line-height: 1.3;
+            width: 484px;
+        }
+
+        background-image: url(/img/hero/hero-tablet.webp);
+
+        @media only screen and (min-resolution: 192dpi) {
+            background-image: url(/img/hero/hero-tablet@2x.webp);
+        }
+    }
+
+    @media only screen and (min-width: 1440px) {
+        width: 100%;
+        height: 600px;
+
+        background-image: url(/img/hero/hero-desktop.webp);
+
+        @media only screen and (min-resolution: 192dpi) {
+            background-image: url(/img/hero/hero-desktop@2x.webp);
+        }
+    }
+    
+}

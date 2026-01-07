@@ -2,13 +2,23 @@
 @use '../utils/mixins' as *;
 
 #header {
-    position: sticky;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: max-content;
+    z-index: 1000;
     backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);;
+
+    margin-bottom: 32px;
 }
 
 .nav {
     @include flex-center;
     justify-content: space-between;
+    margin: 20px 0;
+    height: 18px;
     
     &__logo-header {
         font-style: italic;
@@ -22,6 +32,8 @@
         @media only screen and (min-width: $tablet) {
             font-size: 18px;
             line-height: 0.9;
+
+            height: 30px;
         }
     }
 
