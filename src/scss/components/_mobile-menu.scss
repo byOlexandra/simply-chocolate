@@ -8,6 +8,7 @@
     background-color: var(--bg-color);
     width: 100%;
     height: 100%;
+    overflow-y: hidden;
 
     opacity: 0;
     visibility: hidden;
@@ -34,11 +35,21 @@
         position: absolute;
         top: 35px;
         right: 18px;
+
+        padding: 10px;
+        
+        &:hover {
+            .mm__close-icon {
+                stroke: $highlight;
+            }
+        } 
     }
 
     &__close-icon {
         fill: $white-clr;
         stroke: $black-clr;
+
+        transition: $trans-stroke;
     }
 
     &__block {
@@ -50,22 +61,64 @@
     &__list {
         display: flex;
         flex-direction: column;
+        gap: 48px;
 
         margin-top: auto;
         margin-bottom: auto;
-        margin-right: auto
+        margin-right: auto;
+    }
+
+    &__list-a-item {
+        font-weight: 600;
+
+        position: relative;
+        transition: $trans-color;
+    
+        &::after {
+            content: '';
+            width: 100%;
+            height: 4px;
+            border-radius: 4px;
+            background-color: $highlight;
+    
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            transition: $trans-transform;
+    
+            transform: scaleX(0);
+            transform-origin: bottom right;
+        }
+
+        &:hover {
+            color: $highlight;
+        }
+
+        &:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
     }
 
     &__sm-list {
         @include flex-center;
         justify-content: flex-start;
+        gap: 30px;
         margin-top: auto;
+        margin-bottom: 38px;
 
-        fill: $black-clr;
-        stroke: $white-clr;
-    }
+        fill: $white-clr;
+        stroke: $black-clr;
 
-    @media only screen and (min-width: 768px) {
-        display: $hidden;
-    }
+        a {
+            transition: $trans-stroke;
+        }
+
+        a:hover {
+                stroke: $highlight;
+            }
+        }
+    // @media only screen and (min-width: 768px) {
+    //     display: $hidden;
+    // }
 }
