@@ -54,5 +54,15 @@
     align-items: center;
 
     width: 120px;
-    padding: 12px 28px;
+    height: 41px;
+}
+
+@mixin orangeBtn {
+    background-color: $highlight;
+}
+
+@mixin transparentBtn {
+    background-color: transparent;
+    border-color: $white-clr;
+    border-style: solid;
 }

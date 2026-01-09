@@ -22,11 +22,19 @@
 
     &__list {
         @include flex-center;
-        gap: 30px;
+        gap: 14px;
+        justify-content: flex-start;
+        
+        &>li:first-child {
+            .hero__btn {
+                @include orangeBtn;
+            }
+        }
 
         &>li:last-child {
             .hero__btn {
                 width: 159px;
+                @include transparentBtn;
             }
         }
     }
