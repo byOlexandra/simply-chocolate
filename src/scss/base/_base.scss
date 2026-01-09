@@ -10,12 +10,14 @@
 
   --color: #111111;
   --stroke-color: #111111;
+  --fill-color: #fff;
 }
 
 [data-theme="dark"] {
   --bg-color: #111111;
   --text-color: #fff;
   --stroke-color: #fff;
+  --fill-color: #111111;
 }
 
 html {
