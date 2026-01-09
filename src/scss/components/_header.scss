@@ -58,11 +58,22 @@
             display: $visible;
 
             @include flex-center;
-            gap: 48px;
+            gap: 30px;
         }
 
         @media only screen and (min-width: $desktop) {
-            gap: 200px;
+            gap: 150px;
+        }
+    }
+
+    &__toggle-theme-box {
+        @include flex-center;
+        gap: 6px;
+        svg {
+            stroke: var(--stroke-color);
+            fill: var(--stroke-color);
+
+            transition: $trans-stroke;
         }
     }
 
@@ -78,18 +89,18 @@
     }
 
     &__slider {
-        width: 50px;
-        height: 26px;
+        width: 46px;
+        height: 22px;
         background-color: $light-grey;
-        border-radius: 50px;
+        border-radius: 11px;
         position: relative;
         cursor: pointer;
         transition: background-color 0.3s;
     }
 
     &__circle {
-        width: 20px;
-        height: 20px;
+        width: 16px;
+        height: 16px;
         background-color: $white-clr;
         border-radius: 50%;
         position: absolute;
