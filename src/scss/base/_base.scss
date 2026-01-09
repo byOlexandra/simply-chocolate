@@ -9,11 +9,13 @@
   letter-spacing: 0.02em;
 
   --color: #111111;
+  --stroke-color: #111111;
 }
 
 [data-theme="dark"] {
   --bg-color: #111111;
   --text-color: #fff;
+  --stroke-color: #fff;
 }
 
 html {

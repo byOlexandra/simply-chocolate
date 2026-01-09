@@ -1,5 +1,6 @@
 import './main.scss'
 import mobileMenu from './js/mobile.menu';
 mobileMenu();
-import toggleTheme from './js/header';
+import { toggleTheme, initHeaderScroll } from './js/header';
 toggleTheme();
+initHeaderScroll()

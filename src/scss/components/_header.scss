@@ -15,7 +15,7 @@
 
     &.header-scrolled {
         backdrop-filter: blur(10px);
-        background-color: rgba(255, 255, 255, 0.3);
+        background-color: rgba(255, 255, 255, 0.1);
         mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
     }
 }
@@ -154,7 +154,7 @@
         @include flex-center;
 
         fill: transparent;
-        stroke: $black-clr;
+        stroke: var(--stroke-color);
 
         transition: $trans-stroke;
 
@@ -175,7 +175,7 @@
     }
 
     &__burger-icon {
-        stroke: $black-clr;
+        stroke: var(--stroke-color);
     }   
 }
 

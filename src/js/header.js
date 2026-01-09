@@ -1,4 +1,4 @@
-export default function toggleTheme() {
+export function toggleTheme() {
     const toggleThemeBtn = document.getElementById('theme-toggle');
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
@@ -16,7 +16,17 @@ export default function toggleTheme() {
         } else {
             document.body.setAttribute('data-theme', 'light');
             localStorage.setItem('theme', 'light');
+        }        
+    })
+}
+
+export function initHeaderScroll() {
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            header.classList.add('header-scrolled'); 
+        } else {
+            header.classList.remove('header-scrolled');
         }
-        
     })
 }
