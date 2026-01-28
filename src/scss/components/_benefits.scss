@@ -1,0 +1,65 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+#benefits {
+  background-color: rgba(30, 24, 35, 1);
+}
+
+.benefits {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  @media only screen and (min-width: $tablet) {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+  &__list {
+    @include flex-column;
+    gap: 20px;
+
+    @media only screen and (min-width: $tablet) {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 32px;
+    }
+
+    @media only screen and (min-width: $desktop) {
+        gap: 70px;
+    }
+  }
+
+  &__list-item {
+    @include flex-column;
+    gap: 22px;
+    width: 308px;
+
+    @media only screen and (min-width: $desktop) {
+        width: 326px;
+    }
+  }
+
+  &__svg-box {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background-color: transparent;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.5);
+
+    @include flex-center;
+  }
+
+  &__text-content {
+    @include flex-column;
+    gap: 18px;
+  }
+
+  &__title {
+    font-size: 18px;
+    color: $white-clr;
+  }
+
+  &__subtitle {
+    color: $white-clr-07;
+  }
+}

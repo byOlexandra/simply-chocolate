@@ -6,13 +6,13 @@
     height: 620px;
     border-radius: 30px;
     margin-top: 40px;
+    margin-bottom: 60px;
     padding: 20px;
     box-sizing: border-box;
 
     color: $white-clr;
 
-    display: flex;
-    flex-direction: column;
+    @include flex-column;
     justify-content: flex-end;
     gap: 32px;
 

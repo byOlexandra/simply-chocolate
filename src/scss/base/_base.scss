@@ -1,5 +1,11 @@
 @use '../utils/variables' as *;
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   --font-family: 'Montserrat', sans-serif;
   --bg-color: #ffffff;
@@ -22,9 +28,7 @@
   --fill-color: #111111;
 }
 
-html {
-  padding: 20px;
-  
+html {  
   scrollbar-color: $highlight;
   scrollbar-width: thin;
   &::-webkit-scrollbar {

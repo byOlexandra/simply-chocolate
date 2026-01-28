@@ -22,7 +22,7 @@
     }
 
     &__container {
-        @include flex-column;
+        @include flex-column-center;
         position: relative;
 
         height: 100%;
@@ -53,13 +53,11 @@
 
     &__block {
         flex-grow: 1;
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
     }
 
     &__list {
-        display: flex;
-        flex-direction: column;
+        @include flex-column;
         gap: 48px;
 
         margin-top: auto;
