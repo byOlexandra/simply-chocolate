@@ -14,8 +14,8 @@
     transition: $trans-all;
 
     &.header-scrolled {
-        backdrop-filter: blur(10px);
-        background-color: rgba(255, 255, 255, 0.1);
+        // backdrop-filter: blur(10px);
+        background-color: var(--header-blur);
         mask-image: linear-gradient(to bottom, black 90%, transparent 100%);
     }
 }
@@ -36,10 +36,13 @@
         align-items: center;
 
         @media only screen and (min-width: $tablet) {
-            font-size: 18px;
             line-height: 0.9;
-
+            
             height: 30px;
+        }
+
+        @media only screen and (min-width: $desktop) {
+            font-size: 18px;
         }
     }
 
