@@ -19,6 +19,7 @@
   --text-color: #111111;
   --stroke-color: #111111;
   --fill-color: #fff;
+  --fill-highlight-black: #FD9222;
 }
 
 [data-theme="dark"] {
@@ -28,6 +29,7 @@
   --stroke-color: #fff;
   --fill-color: #111111;
   --bg-nuts-box: #FD9222;
+  --fill-highlight-black: #111111;
 }
 
 html {  
