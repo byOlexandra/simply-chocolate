@@ -25,6 +25,8 @@
 
     @media only screen and (min-width: $desktop) {
         gap: 70px;
+        justify-content: center;
+        align-items: center;
     }
   }
 
@@ -61,5 +63,13 @@
 
   &__subtitle {
     color: $white-clr-07;
+  }
+
+  &__line {
+    @media only screen and (min-width: $desktop) {
+        display: block;
+        border: 1px solid $white-clr-07;
+        height: 150px;
+    }
   }
 }
