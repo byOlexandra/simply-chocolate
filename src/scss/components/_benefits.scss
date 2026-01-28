@@ -2,7 +2,7 @@
 @use '../utils/mixins' as *;
 
 #benefits {
-  background-color: rgba(30, 24, 35, 1);
+    background-color: var(--bg-nuts-box);
 }
 
 .benefits {
