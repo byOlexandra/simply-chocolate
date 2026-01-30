@@ -6,9 +6,10 @@
 
   &__main-box {
     @media only screen and (min-width: $desktop) {
-        display: flex;
-        gap: 20px;
-      }
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
   }
 
   &__title {
@@ -50,6 +51,7 @@
     @media only screen and (min-width: $desktop) {
       background-image: url(/img/tutorial/tutorial-desktop.webp);
       width: 600px;
+      margin: 0;
 
       @media (min-resolution: 192dpi) {
         background-image: url(/img/tutorial/tutorial-desktop@2x.webp);
@@ -68,9 +70,10 @@
       width: 614px;
       margin: 0 auto;
     }
-        @media only screen and (min-width: $desktop) {
-          height: 400px;
-        }
+    @media only screen and (min-width: $desktop) {
+      height: 400px;
+      margin: 0;
+    }
   }
 
   &__list-title {
@@ -91,8 +94,8 @@
     padding-left: 16px;
 
     @media only screen and (min-width: $desktop) {
-        gap: 24px;
-      }
+      gap: 24px;
+    }
   }
 
   &__list-item {
