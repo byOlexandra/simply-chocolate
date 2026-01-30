@@ -8,9 +8,10 @@
 
 :root {
   --font-family: 'Montserrat', sans-serif;
-  --bg-color: #ffffff;
+  --bg-color: #FAFAFA;
   --header-blur: rgba(255, 255, 255, 0.6);
   --bg-nuts-box: #111111;
+  --tutorial-box: #fff;
   font-size: 14px;
   line-height: 1.3;
   font-weight: 400;
@@ -30,6 +31,7 @@
   --fill-color: #111111;
   --bg-nuts-box: #FD9222;
   --fill-highlight-black: #111111;
+  --tutorial-box: #FD9222;
 }
 
 html {  

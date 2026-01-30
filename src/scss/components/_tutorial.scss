@@ -11,8 +11,66 @@
     letter-spacing: -0.03em;
 
     @media only screen and (min-width: $tablet) {
-        font-size: 24px;
-        margin-bottom: 50px;
+      font-size: 24px;
+      margin-bottom: 50px;
     }
+  }
+
+  &__main-image {
+    background-image: url(/img/tutorial/tutorial-mobile.webp);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    border-radius: 18px;
+
+    margin-bottom: 20px;
+
+    @media (min-resolution: 192dpi) {
+      background-image: url(/img/tutorial/tutorial-mobile@2x.webp);
+    }
+
+    @media only screen and (min-width: $tablet) {
+      background-image: url(/img/tutorial/tutorial-tablet.webp);
+      width: 614px;
+      height: 400px;
+      @media (min-resolution: 192dpi) {
+        background-image: url(/img/tutorial/tutorial-tablet@2x.webp);
+      }
+    }
+
+    @media only screen and (min-width: $desktop) {
+      background-image: url(/img/tutorial/tutorial-desktop.webp);
+      width: 600px;
+
+      @media (min-resolution: 192dpi) {
+        background-image: url(/img/tutorial/tutorial-desktop@2x.webp);
+      }
+    }
+  }
+
+  &__list-box {
+    background-color: var(--tutorial-box);
+    color: $black-clr;
+    border-radius: 15px;
+    padding: 20px 14px;
+  }
+
+  &__list-title {
+    font-size: 18px;
+    color: $black-shadowed-clr;
+
+    margin-bottom: 20px;
+  }
+
+  &__list {
+    @include flex-column;
+    gap: 18px;
+    list-style-type: disc;
+    padding-left: 16px;
+  }
+
+  &__list-item {
+    letter-spacing: -0.02em;
   }
 }
