@@ -1,5 +1,6 @@
 import { reviews } from './data/reviewsData';
 
+const STORAGE_KEY = 'reviews_data';
 const url = 'https://randomuser.me/api/?results=10';
 const feedbackList = document.querySelector('.feedback__list');
 
@@ -19,6 +20,11 @@ function renderReviews(arr) {
 }
 
 async function fetchUsers() {
+  const cachedData = localStorage.getItem(STORAGE_KEY);
+  if (cachedData) {
+    renderReviews(JSON.parse(cachedData));
+    return;
+  }
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -28,10 +34,11 @@ async function fetchUsers() {
     const users = data.results;
 
     const combinedReviews = reviews.map((review, index) => ({
-        ...review,
-        name: `${users[index].name.first} ${users[index].name.last}`,
-        photo: `${users[index].picture.large}`,
+      ...review,
+      name: `${users[index].name.first} ${users[index].name.last}`,
+      photo: `${users[index].picture.large}`,
     }));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(combinedReviews));
     renderReviews(combinedReviews);
   } catch (error) {
     console.error('Fetch error:', error);
