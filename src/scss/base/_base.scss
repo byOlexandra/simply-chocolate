@@ -21,6 +21,8 @@
   --stroke-color: #111111;
   --fill-color: #fff;
   --fill-highlight-black: #FD9222;
+
+  --reversedToBgColor: #111111;
 }
 
 [data-theme="dark"] {
@@ -32,6 +34,8 @@
   --bg-nuts-box: #FD9222;
   --fill-highlight-black: #111111;
   --tutorial-box: #FD9222;
+
+  --reversedToBgColor: #fff;
 }
 
 html {  
