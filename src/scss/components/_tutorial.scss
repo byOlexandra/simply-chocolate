@@ -1,0 +1,18 @@
+@use '../utils/mixins' as *;
+@use '../utils/variables' as *;
+
+.tutorial {
+  margin-bottom: 60px;
+
+  &__title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 32px;
+    letter-spacing: -0.03em;
+
+    @media only screen and (min-width: $tablet) {
+        font-size: 24px;
+        margin-bottom: 50px;
+    }
+  }
+}
