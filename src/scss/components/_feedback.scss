@@ -2,13 +2,50 @@
 @use '../utils/variables' as *;
 
 #feedback .feedback {
+  .feedback-slider-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static;
+    flex-shrink: 0;
+  }
+
   .swiper {
     overflow: hidden;
     margin-bottom: 50px;
+
+    padding-top: 55px;
+    padding-bottom: 20px;
   }
 
   .swiper-slide {
     box-sizing: border-box;
+  }
+
+  .swiper-slide {
+    transition:
+      transform 0.3s ease,
+      opacity 0.3s ease;
+    transform: scale(0.85);
+    transform-origin: center;
+
+    opacity: 0.5;
+  }
+
+  .swiper-slide-active {
+    transform: scale(1.1);
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    width: 20px;
+    height: 20px;
   }
 
   .swiper-button-next::after,
@@ -33,15 +70,30 @@
   }
 
   &__list {
-    margin-bottom: 70px;
+    margin-bottom: 40px;
   }
 
   &__list-item {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    border-radius: 20px;
+
+    min-height: 200px;
+
+    background-color: var(--tutorial-box);
   }
+
+  &__list-item-image {
+    width: 80px;
+    border-radius: 50%;
+
+    transform: translateY(-50%);
+    z-index: 100;
+  }
+
   &__arrow-btn {
     background-color: transparent;
     border: none;

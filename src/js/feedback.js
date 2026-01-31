@@ -13,7 +13,7 @@ function reviewTemplate(obj) {
   return `
         <div class='swiper-slide'>
         <div class='feedback__list-item'>
-            <img src="${obj.photo}" alt="picture of a person who left a review"/>
+            <img class="feedback__list-item-image" src="${obj.photo}" alt="picture of a person who left a review"/>
             <h3 class="feedback__username">${obj.name}</h3>
             <p class="feedback__text">${obj.text}</p>
         </div>
@@ -30,14 +30,11 @@ function renderReviews(arr) {
 }
 
 function initSwiper() {
-    new Swiper('.swiper', {
-      modules: [Navigation, Pagination],
-      loop: true,
-        slidesPerView: 1,
-      observer: true,
-        observeParents: true,
-    centeredSlides: false, // Не центрувати слайд, щоб не бачити сусідні
-  watchSlidesProgress: true,
+  new Swiper('.swiper', {
+    modules: [Navigation, Pagination],
+    loop: true,
+    slidesPerView: 1,
+    centeredSlides: true,
 
     pagination: {
       el: '.swiper-pagination',
@@ -52,7 +49,6 @@ function initSwiper() {
       el: '.swiper-scrollbar',
     },
     breakpoints: {
-      768: { slidesPerView: 2 },
       1440: { slidesPerView: 3 },
     },
   });
@@ -87,5 +83,3 @@ async function fetchUsers() {
 export default function initReviews() {
   fetchUsers();
 }
-
-
