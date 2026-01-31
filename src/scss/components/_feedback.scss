@@ -34,6 +34,10 @@
     transform-origin: center;
 
     opacity: 0.5;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .swiper-slide-active {
@@ -82,6 +86,8 @@
     border-radius: 20px;
 
     min-height: 200px;
+    width: 100%;
+    padding: 20px;
 
     background-color: var(--tutorial-box);
   }
