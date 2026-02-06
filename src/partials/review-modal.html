@@ -1,0 +1,45 @@
+<div class="backdrop">
+  <div class="review-modal">
+    <h2 class="review-modal__title">
+      Leave a review about <span class="highlight">our chocolate</span>
+    </h2>
+    <form class="review-modal__form">
+      <div class="review-modal__form-field">
+        <label for="username" class="review-modal__form-label">Name</label>
+        <input type="text" name="username" id="username" />
+        <span id="error-username" class="review-modal__error-message"></span>
+      </div>
+      <div class="review-modal__form-field">
+        <label for="email" class="review-modal__form-label">Email</label>
+        <input type="email" name="email" id="email" />
+        <span id="error-email" class="review-modal__error-message"></span>
+      </div>
+      <div class="review-modal__form-field">
+        <label for="phone" class="review-modal__form-label">Phone</label>
+        <input type="tel" name="phone" id="phone" />
+        <span id="error-phone" class="review-modal__error-message"></span>
+      </div>
+      <div class="review-modal__form-field">
+        <label for="comment" class="review-modal__form-label">Comment</label>
+        <textarea
+          name="comment"
+          id="comment"
+          placeholder="Enter text"
+          rows="3"
+          class="review-modal__form-textarea"
+        ></textarea>
+        <span id="error-comment" class="review-modal__error-message"></span>
+      </div>
+      <div class="review-modal__checkbox-group">
+        <input type="checkbox" name="terms" id="terms" class="review-modal__checkbox"/>
+        <label for="terms" class="review-modal__checkbox-label"
+          >I accept the terms and conditions of the
+          <span class="highlight">Privacy Policy</span>
+        </label>
+        <span id="error-terms" class="review-modal__error-message"></span>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Review</button>
+    </form>
+  </div>
+</div>
