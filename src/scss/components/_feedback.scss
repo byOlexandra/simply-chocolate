@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    margin: 0 auto;
   }
 
   .swiper-button-prev,
@@ -85,11 +86,22 @@
     text-align: center;
     border-radius: 20px;
 
-    min-height: 200px;
-    width: 100%;
-    padding: 20px;
+    min-height: 300px;
+    width: 85%;
+    padding: 10px;
 
     background-color: var(--tutorial-box);
+    color: $dark-chocolate;
+
+    @include tablet {
+      width: 60%;
+      min-height: 250px;
+    }
+    
+    @include desktop {
+      width: 85%;
+      min-height: 260px;
+    }
   }
 
   &__list-item-image {
@@ -98,6 +110,27 @@
 
     transform: translateY(-50%);
     z-index: 100;
+  }
+
+  &__username {
+    margin-bottom: 20px;
+    letter-spacing: 0.05em;
+
+    margin-top: -15px;
+  }
+
+  &__text {
+    width: 200px;
+    letter-spacing: 0.04em;
+    line-height: 1.8;
+
+    @include tablet {
+      width: 350px;
+    }
+
+    @include desktop {
+      width: 250px;
+    }
   }
 
   &__arrow-btn {
