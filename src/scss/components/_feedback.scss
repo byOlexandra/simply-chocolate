@@ -17,7 +17,7 @@
 
   .swiper {
     overflow: hidden;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
 
     padding-top: 55px;
     padding-bottom: 20px;
@@ -149,4 +149,20 @@
       color: $dark-highlight;
     }
   }
+}
+
+#leaveReviewBtn {
+  width: 165px;
+  height: 41px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  background-color: transparent;
+  color: var(--text-color);
+  line-height: 1.8;
+  border: 2px solid $highlight;
+  border-radius: 100px;
+
+  @include flex-center;
+  font-weight: 600;
+
 }
