@@ -21,6 +21,7 @@
     "axios": "^1.13.4",
     "swiper": "^12.1.0",
     "vite-plugin-full-reload": "^1.2.0",
-    "vite-plugin-html-inject": "^1.1.2"
+    "vite-plugin-html-inject": "^1.1.2",
+    "yup": "^1.7.1"
   }
 }

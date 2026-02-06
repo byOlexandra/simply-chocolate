@@ -9,6 +9,7 @@ const STORAGE_KEY = 'reviews_data';
 const url = 'https://randomuser.me/api/?results=10';
 const feedbackList = document.querySelector('.feedback__list');
 
+
 function reviewTemplate(obj) {
   return `
         <div class='swiper-slide'>
@@ -60,6 +61,7 @@ async function fetchUsers() {
     renderReviews(JSON.parse(cachedData));
     return;
   }
+  
   try {
     const response = await fetch(url);
     if (!response.ok) {
