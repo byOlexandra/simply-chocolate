@@ -3,8 +3,7 @@ export function initReviewModal() {
     const openModalBtn = document.querySelector('#leaveReviewBtn');
     const closeModalBtn = document.querySelector('#closeModal')
 
-    openModalBtn.addEventListener('click', e => {
-        e.preventDefault()
+    openModalBtn.addEventListener('click', () => {
         backdrop.classList.add('is-open');
         document.body.style.overflow = 'hidden'
     })
@@ -16,6 +15,13 @@ export function initReviewModal() {
 
     backdrop.addEventListener('click', (e) => {
         if (e.target === e.currentTarget) {
+            backdrop.classList.remove('is-open');
+            document.body.style.overflow = 'visible'
+        }
+    })
+
+    document.addEventListener('keydown', e => {
+        if (e.code === 'Escape') {
             backdrop.classList.remove('is-open');
             document.body.style.overflow = 'visible'
         }

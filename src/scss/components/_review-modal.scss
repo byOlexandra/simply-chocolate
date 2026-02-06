@@ -42,21 +42,28 @@
   &__close-btn {
     position: absolute;
     top: 6px;
-    right: 15px;
+    right: 6px;
     border: none;
     border-radius: 50%;
     background-color: transparent;
-    font-size: 28px;
-    width: 34px;
-    height: 34px;
+    font-size: 24px;
+    width: 27px;
+    height: 27px;
     @include flex-center;
     text-align: center;
+    color: var(--text-color);
 
     transition: $trans-all;
 
     &:hover {
         border-radius: 50%;
         background-color: $highlight-05;
+    }
+
+    @include desktop {
+        font-size: 28px;
+        width: 34px;
+            height: 34px;
     }
   }
 }
