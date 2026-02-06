@@ -3,16 +3,7 @@ import IMask from 'imask';
 import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 
-const clearErrorMessages = () =>
-  document
-    .querySelectorAll('.review-modal__error-message')
-    .forEach(el => (el.textContent = ''));
-
-export function initReviewModal() {
-  const backdrop = document.querySelector('.review-backdrop');
-  const openModalBtn = document.querySelector('#leaveReviewBtn');
-  const closeModalBtn = document.querySelector('#closeModal');
-  const notyf = new Notyf({
+const notyf = new Notyf({
     duration: 2000,
     position: { x: 'center', y: 'top' },
     types: [
@@ -24,71 +15,85 @@ export function initReviewModal() {
     ],
   });
 
+const clearErrorMessages = () =>
+  document
+    .querySelectorAll('.review-modal__error-message')
+    .forEach(el => (el.textContent = ''));
+
+
+const schema = yup.object().shape({
+username: yup
+    .string()
+    .required('Your name is required')
+    .min(2, 'At least 2 letters'),
+email: yup.string().required('You email is required').email(),
+phone: yup
+    .string()
+    .required('Enter your phone')
+    .test('len', 'Invalid phone number', val => {
+    const clean = val.replace(/\D/g, '');
+    return clean.length === 12;
+    }),
+comment: yup
+    .string()
+    .max(250, 'Must be less than 250 letters')
+    .required('Enter your thoughts'),
+terms: yup
+    .boolean()
+    .oneOf([true], 'You must agree with terms')
+    .required('You must agree with terms'),
+});
+
+const toggleModal = (backdrop, isOpen) => {
+    backdrop.classList.toggle('is-open', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : 'visible';
+}
+
+export function initReviewModal() {
+  const backdrop = document.querySelector('.review-backdrop');
+  const openModalBtn = document.querySelector('#leaveReviewBtn');
+    const closeModalBtn = document.querySelector('#closeModal');
+    const form = document.querySelector('.review-modal__form');
+    const phoneInput = document.getElementById('phone');
+    
+    if (!form || !phoneInput || !backdrop) return;
+
+    const maskOptions = {
+    mask: '+{38}(000)000-00-00',
+    lazy: false,
+    };
+    const mask = IMask(phoneInput, maskOptions);
+
   openModalBtn.addEventListener('click', () => {
     backdrop.classList.add('is-open');
-      document.body.style.overflow = 'hidden';
-      
-      form.reset();
-      mask.value = '';
-      mask.updateValue();
+    document.body.style.overflow = 'hidden';
 
-    clearErrorMessages();
+    form.reset();
+    mask.value = '';
+    mask.updateValue();
+
+      clearErrorMessages();
+      toggleModal(backdrop, true)
   });
 
   closeModalBtn.addEventListener('click', () => {
-    backdrop.classList.remove('is-open');
-    document.body.style.overflow = 'visible';
+      toggleModal(backdrop, false);
   });
 
   backdrop.addEventListener('click', e => {
     if (e.target === e.currentTarget) {
-      backdrop.classList.remove('is-open');
-      document.body.style.overflow = 'visible';
+        toggleModal(backdrop, false)
     }
   });
 
   document.addEventListener('keydown', e => {
-    if (e.code === 'Escape') {
-      backdrop.classList.remove('is-open');
-      document.body.style.overflow = 'visible';
+    if (e.code === 'Escape' && backdrop.classList.contains('is-open')) {
+      toggleModal(backdrop, false)
     }
   });
 
-  const schema = yup.object().shape({
-    username: yup
-      .string()
-      .required('Your name is required')
-      .min(2, 'At least 2 letters'),
-    email: yup.string().required('You email is required').email(),
-    phone: yup
-      .string()
-      .required('Enter your phone')
-      .test('len', 'Invalid phone number', val => {
-        const clean = val.replace(/\D/g, '');
-        return clean.length === 12;
-      }),
-    comment: yup
-      .string()
-      .max(250, 'Must be less than 250 letters')
-      .required('Enter your thoughts'),
-    terms: yup
-      .boolean()
-      .oneOf([true], 'You must agree with terms')
-      .required('You must agree with terms'),
-  });
-
-  const form = document.querySelector('.review-modal__form');
-
-  const phoneInput = document.getElementById('phone');
-  const maskOptions = {
-    mask: '+{38}(000)000-00-00',
-    lazy: false,
-  };
-  const mask = IMask(phoneInput, maskOptions);
-
-  form.addEventListener('submit', async e => {
+    form.addEventListener('submit', async e => {      
     e.preventDefault();
-
     clearErrorMessages();
 
     const formData = new FormData(form);
@@ -104,8 +109,8 @@ export function initReviewModal() {
 
       notyf.success('Your review has been successfully saved!');
 
-        form.reset();
-        mask.value = '';
+      form.reset();
+      mask.value = '';
       mask.updateValue();
     } catch (error) {
       if (error.inner) {
