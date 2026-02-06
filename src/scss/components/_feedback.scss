@@ -51,6 +51,11 @@
   .swiper-button-next {
     width: 20px;
     height: 20px;
+
+    @include tablet {
+      width: 30px;
+      height: 30px;
+    }
   }
 
   .swiper-button-next::after,
