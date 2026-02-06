@@ -4,23 +4,54 @@
       &times;
     </button>
     <h2 class="review-modal__title">
-      Leave a review about <span class="highlight">our chocolate</span>
+      Leave a review <br />
+      about <span class="highlight">our chocolate</span>
     </h2>
 
     <form class="review-modal__form">
       <div class="review-modal__form-field">
         <label for="username" class="review-modal__form-label">Name</label>
-        <input type="text" name="username" id="username" />
+        <div class="review-modal__input-wrapper">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            class="review-modal__input"
+          />
+          <svg class="review-modal__input-icon" width="17" height="17">
+            <use href="/img/sprite.svg#icon-user"></use>
+          </svg>
+        </div>
         <span id="error-username" class="review-modal__error-message"></span>
       </div>
       <div class="review-modal__form-field">
         <label for="email" class="review-modal__form-label">Email</label>
-        <input type="email" name="email" id="email" />
+        <div class="review-modal__input-wrapper">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="review-modal__input"
+          />
+        <svg class="review-modal__input-icon" width="17" height="17">
+            <use href="/img/sprite.svg#icon-mail"></use>
+        </svg>
+        </div>
         <span id="error-email" class="review-modal__error-message"></span>
       </div>
       <div class="review-modal__form-field">
         <label for="phone" class="review-modal__form-label">Phone</label>
-        <input type="tel" name="phone" id="phone" />
+        <div class="review-modal__input-wrapper">
+          <input
+            type="tel"
+            name="phone"
+            id="phone"
+            class="review-modal__input"
+          />
+        <svg class="review-modal__input-icon" width="17" height="17">
+            <use href="/img/sprite.svg#icon-phone"></use>
+        </svg>
+        </div>
         <span id="error-phone" class="review-modal__error-message"></span>
       </div>
       <div class="review-modal__form-field">
@@ -30,7 +61,7 @@
           id="comment"
           placeholder="Enter text"
           rows="3"
-          class="review-modal__form-textarea"
+          class="review-modal__textarea"
         ></textarea>
         <span id="error-comment" class="review-modal__error-message"></span>
       </div>

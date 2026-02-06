@@ -25,8 +25,9 @@
 }
 
 .review-modal {
-    position: relative;
-    cursor: auto;
+  position: relative;
+  cursor: auto;
+  overflow-y: auto;
   width: 311px;
   height: 678px;
   max-height: 80vh;
@@ -56,14 +57,93 @@
     transition: $trans-all;
 
     &:hover {
-        border-radius: 50%;
-        background-color: $highlight-05;
+      border-radius: 50%;
+      background-color: $highlight-05;
     }
 
     @include desktop {
-        font-size: 28px;
-        width: 34px;
-            height: 34px;
+      font-size: 28px;
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 42px;
+    font-size: 20px;
+    line-height: 1.2;
+    width: 261px;
+    text-align: left;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+  }
+
+  &__form {
+    @include flex-column;
+    gap: 8px;
+  }
+
+  &__form-field {
+    @include flex-column;
+    gap: 4px;
+  }
+
+  &__form-label {
+    color: var(--label-color);
+  }
+
+  &__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__input-icon {
+    position: absolute;
+    top: 14px;
+    left: 18px;
+    stroke: var(--stroke-color);
+    fill: var(--fill-color);
+  }
+
+  &__input {
+    width: 100%;
+    height: 45px;
+    background-color: transparent;
+    padding-left: 43px;
+    caret-color: var(--caret-color);
+    color: var(--text-color);
+    font-size: 18px;
+
+    outline: none;
+    border: 1.5px solid var(--input-color);
+    border-radius: 8px;
+
+    transition: $trans-all;
+
+    &:hover {
+      border-color: $highlight;
+    }
+
+    &:focus-within {
+      border-color: $highlight;
+    }
+  }
+
+  &__textarea {
+    background-color: transparent;
+    resize: vertical;
+    padding: 14px 18px;
+    outline: none;
+    border: 1.5px solid var(--input-color);
+    border-radius: 8px;
+    caret-color: var(--caret-color);
+    color: var(--text-color);
+    font-size: 16px;
+
+    &::placeholder {
+      font-family: var(--font-family);
     }
   }
 }
