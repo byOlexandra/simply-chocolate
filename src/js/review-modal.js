@@ -1,14 +1,38 @@
 import * as yup from 'yup';
 import IMask from 'imask';
+import { Notyf } from 'notyf';
+import 'notyf/notyf.min.css';
+
+const clearErrorMessages = () =>
+  document
+    .querySelectorAll('.review-modal__error-message')
+    .forEach(el => (el.textContent = ''));
 
 export function initReviewModal() {
   const backdrop = document.querySelector('.review-backdrop');
   const openModalBtn = document.querySelector('#leaveReviewBtn');
   const closeModalBtn = document.querySelector('#closeModal');
+  const notyf = new Notyf({
+    duration: 2000,
+    position: { x: 'center', y: 'top' },
+    types: [
+      {
+        type: 'success',
+        background: '#FD9222',
+        duration: 4000,
+      },
+    ],
+  });
 
   openModalBtn.addEventListener('click', () => {
     backdrop.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      
+      form.reset();
+      mask.value = '';
+      mask.updateValue();
+
+    clearErrorMessages();
   });
 
   closeModalBtn.addEventListener('click', () => {
@@ -65,30 +89,26 @@ export function initReviewModal() {
   form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    document
-      .querySelectorAll('.review-modal__error-message')
-      .forEach(el => (el.textContent = ''));
+    clearErrorMessages();
 
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
     data.phone = mask.value;
-
     data.terms = form.elements.terms.checked;
 
-      console.log(data);
-      
-      
+    console.log(data);
 
     try {
       await schema.validate(data, { abortEarly: false });
-        
-      form.reset();
-      mask.value = '';
+
+      notyf.success('Your review has been successfully saved!');
+
+        form.reset();
+        mask.value = '';
       mask.updateValue();
     } catch (error) {
       if (error.inner) {
-        console.dir(error);
         error.inner.forEach(err => {
           const errSpan = document.querySelector(`#error-${err.path}`);
           if (errSpan) errSpan.textContent = err.message;
