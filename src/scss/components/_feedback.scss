@@ -165,4 +165,19 @@
   @include flex-center;
   font-weight: 600;
 
+  @include tablet {
+    width: 222px;
+    height: 50px;
+    font-size: 18px;
+  }
+
+  transition: $trans-all;
+}
+
+#leaveReviewBtn:hover {
+  transform: translateY(-2px);
+}
+
+#leaveReviewBtn:active {
+  color: $dark-highlight;
 }
