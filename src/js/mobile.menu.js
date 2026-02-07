@@ -13,7 +13,10 @@ export default function mobileMenu() {
     if (e.target.closest('.mm__list-a-item')) {
       closeMenu();
     }
-  });
+    });
+    document.body.addEventListener('keydown', e => {
+        if(e.code === 'Escape') closeMenu()
+    })
 }
 
 const closeMenu = () => {
