@@ -4,8 +4,9 @@ import injectHTML from 'vite-plugin-html-inject';
 import FullReload from 'vite-plugin-full-reload';
 import SortCss from 'postcss-sort-media-queries';
 
-export default defineConfig(({ command }) => {
+export default defineConfig(({ command }) => {  
   return {
+    base: process.env.VERCEL ? '/' : '/simply-chocolate/',
     define: {
       [command === 'serve' ? 'global' : '_global']: {},
     },
