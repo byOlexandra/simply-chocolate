@@ -173,7 +173,7 @@
     #theme-toggle:checked+&__slider {
         background-color: $highlight;
     }
-    @media only screen and (min-width: 768px) {
+    @include desktop {
         display: $hidden;
     }
 }

@@ -9,7 +9,6 @@ export default function mobileMenu() {
     open?.addEventListener('click', () => {
         menu.classList.add('is-open');
         document.body.style.overflow = 'hidden';
-        header.style.position = 'static';
     });
     close?.addEventListener('click', () => {
         menu.classList.remove('is-open');
