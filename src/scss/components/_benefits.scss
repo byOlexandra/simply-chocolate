@@ -2,31 +2,31 @@
 @use '../utils/mixins' as *;
 
 #benefits {
-    background-color: var(--bg-nuts-box);
+  background-color: var(--bg-nuts-box);
 }
 
 .benefits {
   padding-top: 20px;
   padding-bottom: 20px;
 
-  @media only screen and (min-width: $tablet) {
+  @include tablet {
     padding-top: 50px;
-    padding-bottom: 50px;
+    // padding-bottom: 50px;
   }
   &__list {
     @include flex-column;
     gap: 20px;
 
-    @media only screen and (min-width: $tablet) {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: 32px;
+    @include tablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 32px;
     }
 
-    @media only screen and (min-width: $desktop) {
-        gap: 70px;
-        align-items: start;
-        justify-content: center;
+    @include desktop {
+      gap: 70px;
+      align-items: start;
+      justify-content: center;
     }
   }
 
@@ -35,8 +35,8 @@
     gap: 22px;
     width: 308px;
 
-    @media only screen and (min-width: $desktop) {
-        width: 326px;
+    @include desktop {
+      width: 326px;
     }
   }
 
@@ -70,11 +70,11 @@
   }
 
   &__line {
-    @media only screen and (min-width: $desktop) {
-        display: block;
-        border: 1px solid $white-clr-07;
-        height: 150px;
-        align-self: center;
+    @include desktop {
+      display: block;
+      border: 1px solid $white-clr-07;
+      height: 150px;
+      align-self: center;
     }
   }
 }
