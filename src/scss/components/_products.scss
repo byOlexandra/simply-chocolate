@@ -2,8 +2,13 @@
 @use '../utils/mixins' as *;
 
 .products {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 40px;
+    padding-bottom: 20px;
+
+    @include desktop {
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
 
     &__title {
         margin: 0 auto;
@@ -15,11 +20,11 @@
 
         margin-bottom: 24px;
 
-        @media only screen and (min-width: $tablet) {
+        @include tablet {
             width: 440px;
             font-size: 24px;
         }
-        @media only screen and (min-width: $desktop) {
+        @include desktop {
             margin-bottom: 28px;
         }
     }
@@ -31,7 +36,7 @@
         letter-spacing: -0.02em;
 
         margin-bottom: 32px;
-        @media only screen and (min-width: $tablet) {
+        @include tablet {
             width: 486px;
             margin-bottom: 50px;
         }
@@ -40,12 +45,12 @@
     &__list {
         @include flex-column;
         gap: 20px;
-        @media only screen and (min-width: $tablet) {
+        @include tablet {
             gap: 32px;
             flex-direction: row;
             flex-wrap: wrap;
         }
-        @media only screen and (min-width: $desktop) {
+        @include desktop {
             gap: 19px;
             flex-wrap: nowrap;
         }

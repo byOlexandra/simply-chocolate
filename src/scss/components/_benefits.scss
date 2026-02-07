@@ -11,7 +11,7 @@
 
   @include tablet {
     padding-top: 50px;
-    // padding-bottom: 50px;
+    padding-bottom: 50px;
   }
   &__list {
     @include flex-column;
