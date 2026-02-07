@@ -2,6 +2,7 @@
 @use '../utils/variables' as *;
 
 #feedback .feedback {
+  padding-top: 60px;
   .feedback-slider-container {
     display: flex;
     align-items: center;
