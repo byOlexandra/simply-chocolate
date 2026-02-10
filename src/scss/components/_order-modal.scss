@@ -119,11 +119,11 @@
     border-radius: 4px;
     transition: $trans-all;
 
-        &--selected {
-          border-color: #fd9222;
-            background-color: $highlight-05;
-            transform: scale(1.05);
-        }
+    &--selected {
+      border-color: #fd9222;
+      background-color: $highlight-05;
+      transform: scale(1.05);
+    }
   }
   &__choc-name {
     font-size: 16px;
@@ -140,8 +140,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
+    margin-bottom: 8px;
 
-    margin-bottom: 8px
+    @include tablet {
+      justify-content: flex-start;
+    }
   }
   &__form-group {
     @include flex-column;
@@ -160,6 +163,8 @@
 
   &__input {
     width: 100%;
+
+    min-width: 210px;
     height: 45px;
     background-color: transparent;
     padding-left: 18px;
@@ -181,13 +186,17 @@
       border-color: $highlight;
     }
 
+    @include tablet {
+      min-width: 100%;
+    }
+
     @include desktop {
       font-size: 16px;
     }
 
     option {
-        color: $black-clr;
-        background-color: $light-grey;
+      color: $black-clr;
+      background-color: $light-grey;
     }
   }
 
@@ -195,6 +204,7 @@
     background-color: transparent;
     resize: vertical;
     padding: 14px 18px;
+    min-width: 210px;
     outline: none;
     border: 1.5px solid var(--input-color);
     border-radius: 8px;
@@ -213,6 +223,9 @@
     &:focus {
       border-color: $highlight;
     }
+    @include tablet {
+      min-width: 100%;
+    }
   }
 
   &__checkbox-group {
@@ -220,37 +233,37 @@
     gap: 4px;
   }
 
-    &__checkbox {
-      appearance: none;
-      -webkit-appearance: none;
-  
-      display: block;
-      min-width: 20px;
-      height: 20px;
-      border: 2px solid $light-grey;
-      background-color: transparent;
-      border-radius: 4px;
-      cursor: pointer;
-      outline: none;
-  
-      @include flex-center;
-  
-      transition: $trans-all;
-  
-      &:checked {
-        background-color: $highlight;
-        border-color: $highlight;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fff' d='M12.636 30.427c1.395 0 2.449-0.536 3.163-1.607l15.448-23.28c0.257-0.379 0.446-0.753 0.569-1.121 0.123-0.379 0.184-0.742 0.184-1.088 0-0.96-0.335-1.752-1.004-2.377-0.658-0.636-1.473-0.954-2.444-0.954-0.669 0-1.238 0.134-1.707 0.402-0.457 0.257-0.893 0.703-1.305 1.339l-12.971 20.368-6.494-7.782c-0.703-0.815-1.584-1.222-2.644-1.222-0.993 0-1.813 0.318-2.46 0.954s-0.971 1.434-0.971 2.393c0 0.435 0.067 0.848 0.201 1.238 0.145 0.379 0.407 0.775 0.787 1.188l8.619 10.159c0.792 0.926 1.802 1.389 3.029 1.389z'/%3E%3C/svg%3E");
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 80%;
-      }
+  &__checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+
+    display: block;
+    min-width: 20px;
+    height: 20px;
+    border: 2px solid $light-grey;
+    background-color: transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    outline: none;
+
+    @include flex-center;
+
+    transition: $trans-all;
+
+    &:checked {
+      background-color: $highlight;
+      border-color: $highlight;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fff' d='M12.636 30.427c1.395 0 2.449-0.536 3.163-1.607l15.448-23.28c0.257-0.379 0.446-0.753 0.569-1.121 0.123-0.379 0.184-0.742 0.184-1.088 0-0.96-0.335-1.752-1.004-2.377-0.658-0.636-1.473-0.954-2.444-0.954-0.669 0-1.238 0.134-1.707 0.402-0.457 0.257-0.893 0.703-1.305 1.339l-12.971 20.368-6.494-7.782c-0.703-0.815-1.584-1.222-2.644-1.222-0.993 0-1.813 0.318-2.46 0.954s-0.971 1.434-0.971 2.393c0 0.435 0.067 0.848 0.201 1.238 0.145 0.379 0.407 0.775 0.787 1.188l8.619 10.159c0.792 0.926 1.802 1.389 3.029 1.389z'/%3E%3C/svg%3E");
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 80%;
     }
-  
-    &__checkbox-label {
-      font-size: 12px;
-      letter-spacing: -0.02em;
-    }
+  }
+
+  &__checkbox-label {
+    font-size: 12px;
+    letter-spacing: -0.02em;
+  }
 
   &__submit-btn {
     background-color: $highlight;
@@ -279,4 +292,12 @@
     color: $error-color;
     font-size: 12px;
   }
+}
+
+#dynamic-fields-container {
+  display: contents;
+}
+
+.optional-span {
+  font-size: 10px;
 }

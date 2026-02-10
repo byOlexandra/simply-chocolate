@@ -47,7 +47,7 @@
             />
           </div>
           <div class="order__form-group">
-            <label class="order__label" for="userEmail">Email (optional)</label>
+            <label class="order__label" for="userEmail">Email <span class="optional-span">(optional)</span></label>
             <input
               class="order__input"
               type="email"
@@ -57,31 +57,33 @@
           </div>
         <div class="order__form-group">
             <label class="order__label" for="userEmail">City</label>
-            <input class="order__input" type="text" id="userCity" name="customer_city" />
+            <input class="order__input" type="text" id="userCity" name="customer_city" placeholder="e.g. Kyiv" />
         </div>
         <div class="order__form-group">
         <label class="order__label" for="deliveryMethod">Delivery Method</label>
         <select class="order__input" id="deliveryMethod" name="delivery_method">
+          <option value="" disabled selected>Select method</option>
             <option value="nova_poshta">Nova Post</option>
             <option value="courier">Courier Delivery</option>
             <option value="pickup">Self-pickup</option>
         </select>
         </div>
-        <div class="order__form-group">
+        <div id="dynamic-fields-container"></div>
+        <!-- <div class="order__form-group">
             <label class="order__label" for="userAddress">Address</label>
             <input class="order__input" type="text" id="userAddress" name="customer_address"
-                placeholder="e.g. Street name" />
-        </div>
+                placeholder="e.g. Ukrainska street" />
+        </div> -->
           <div class="order__form-group">
             <label class="order__label" for="userComment"
-              >Comment (optional)</label
+              >Comment <span class="optional-span">(optional)</span></label
             >
             <textarea
               class="order__textarea"
               id="userComment"
               name="customer_comment"
               placeholder="Any special requests?"
-              rows="3"
+              rows="2"
             ></textarea>
           </div>
         

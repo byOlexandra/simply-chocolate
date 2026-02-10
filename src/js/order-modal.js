@@ -4,6 +4,8 @@ const closeBtn = document.querySelector('#closeOrderModal');
 const modalChocolateList = document.querySelector('#modalChocolateList');
 const selectedChocInput = document.getElementById('selectedChocInput');
 const orderForm = document.getElementById('mainOrderForm');
+const deliverySelect = document.getElementById('deliveryMethod');
+const dynamicContainer = document.getElementById('dynamic-fields-container');
 
 const toggleModal = (backdrop, isOpen) => {
   backdrop.classList.toggle('is-open', isOpen);
@@ -38,6 +40,7 @@ function renderModalOptions(chocolates) {
     )
     .join('');
   setupSelectionLogic();
+  setupDeliveryLogic()
 }
 
 function setupSelectionLogic() {
@@ -57,6 +60,31 @@ function setupSelectionLogic() {
       console.log(`Selected: ${productName}`);
     });
   });
+}
+
+function setupDeliveryLogic() {
+  deliverySelect.addEventListener('change', (e) => {
+  const method = e.target.value;
+  
+  dynamicContainer.innerHTML = '';
+
+  if (method === 'nova_poshta') {
+    dynamicContainer.innerHTML = `
+      <div class="order__form-group">
+        <label class="order__label" for="npOffice">Post Office Number</label>
+        <input class="order__input" type="text" id="npOffice" name="np_office" placeholder="e.g. 1545" />
+      </div>
+    `;
+  } else {
+    dynamicContainer.innerHTML = `
+      <div class="order__form-group">
+            <label class="order__label" for="userAddress">Address</label>
+            <input class="order__input" type="text" id="userAddress" name="customer_address"
+                placeholder="e.g. Ukrainska street" />
+        </div>
+    `;
+  }
+});
 }
 
 export function initOrderModal() {
