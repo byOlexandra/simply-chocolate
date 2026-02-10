@@ -1,0 +1,250 @@
+@use '../utils/variables' as *;
+@use '../utils/mixins' as *;
+
+.order-backdrop {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    width: 100%;
+    height: 100%;
+    @include flex-center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1001;
+
+    background-color: $highlight-05;
+}
+
+.order-backdrop.is-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.order {
+    position: relative;
+    cursor: auto;
+    overflow-y: auto;
+    width: 70vw;
+    height: 90vh;
+    background-color: var(--bg-color);
+    border-radius: 15px;
+    padding: 20px;
+    padding-top: 30px;
+    @include tablet {
+            width: 70vw;
+        }
+    
+        &__close-btn {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            border: none;
+            border-radius: 50%;
+            background-color: transparent;
+            font-size: 24px;
+            width: 27px;
+            height: 27px;
+            @include flex-center;
+            text-align: center;
+            color: var(--text-color);
+    
+            transition: $trans-all;
+    
+            &:hover {
+                border-radius: 50%;
+                background-color: $highlight-05;
+            }
+    
+            @include desktop {
+                font-size: 28px;
+                width: 34px;
+                height: 34px;
+            }
+        }
+    
+        &__title {
+            display: block;
+            margin-bottom: 35px;
+            font-size: 20px;
+            line-height: 1.2;
+            
+            text-align: left;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+        }
+    
+        &__form {
+            @include flex-column;
+            gap: 8px;
+        }
+    
+        &__form-field {
+            @include flex-column;
+            gap: 4px;
+        }
+    
+        &__form-label {
+            color: var(--label-color);
+        }
+    
+        &__input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+    
+        &__input-icon {
+            position: absolute;
+            top: 14px;
+            left: 18px;
+            stroke: var(--stroke-color);
+            fill: var(--fill-color);
+        }
+    
+        &__input {
+    
+            &:-webkit-autofill,
+            &:-webkit-autofill:hover,
+            &:-webkit-autofill:focus {
+                -webkit-box-shadow: 0 0 0px 1000px var(--bg-color) inset;
+    
+                -webkit-text-fill-color: var(--text-color);
+            }
+    
+            width: 100%;
+            height: 45px;
+            background-color: transparent;
+            padding-left: 43px;
+            caret-color: var(--caret-color);
+            color: var(--text-color);
+            font-size: 14px;
+    
+            outline: none;
+            border: 1.5px solid var(--input-color);
+            border-radius: 8px;
+    
+            transition: $trans-all;
+    
+            &:hover {
+                border-color: $highlight;
+            }
+    
+            &:focus-within {
+                border-color: $highlight;
+            }
+    
+            &:focus+.review-modal__input-icon {
+                stroke: $highlight;
+            }
+    
+            @include desktop {
+                font-size: 16px;
+            }
+        }
+    
+        &__textarea {
+            background-color: transparent;
+            resize: vertical;
+            padding: 14px 18px;
+            outline: none;
+            border: 1.5px solid var(--input-color);
+            border-radius: 8px;
+            caret-color: var(--caret-color);
+            color: var(--text-color);
+            font-size: 14px;
+            font-family: var(--font-family);
+    
+            transition: $trans-all;
+    
+            &::placeholder {
+                font-family: var(--font-family);
+                color: $light-grey;
+            }
+    
+            &:hover,
+            &:focus {
+                border-color: $highlight;
+            }
+        }
+    
+        &__checkbox-group {
+            display: flex;
+            align-items: first-baseline;
+            height: 32px;
+            gap: 12px;
+            min-width: 263px;
+    
+            @include tablet {
+                align-items: center;
+            }
+        }
+    
+        &__checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+    
+            display: block;
+            min-width: 20px;
+            height: 20px;
+            border: 2px solid $light-grey;
+            background-color: transparent;
+            border-radius: 4px;
+            cursor: pointer;
+            outline: none;
+    
+            @include flex-center;
+    
+            transition: $trans-all;
+    
+            &:checked {
+                background-color: $highlight;
+                border-color: $highlight;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fff' d='M12.636 30.427c1.395 0 2.449-0.536 3.163-1.607l15.448-23.28c0.257-0.379 0.446-0.753 0.569-1.121 0.123-0.379 0.184-0.742 0.184-1.088 0-0.96-0.335-1.752-1.004-2.377-0.658-0.636-1.473-0.954-2.444-0.954-0.669 0-1.238 0.134-1.707 0.402-0.457 0.257-0.893 0.703-1.305 1.339l-12.971 20.368-6.494-7.782c-0.703-0.815-1.584-1.222-2.644-1.222-0.993 0-1.813 0.318-2.46 0.954s-0.971 1.434-0.971 2.393c0 0.435 0.067 0.848 0.201 1.238 0.145 0.379 0.407 0.775 0.787 1.188l8.619 10.159c0.792 0.926 1.802 1.389 3.029 1.389z'/%3E%3C/svg%3E");
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: 80%;
+            }
+        }
+    
+        &__checkbox-label {
+            font-size: 12px;
+            letter-spacing: -0.02em;
+        }
+    
+        &__terms-span {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+    
+        &__submit-btn {
+            background-color: $highlight;
+            display: block;
+            width: 93px;
+            height: 41px;
+            @include flex-center;
+            color: $white-clr;
+            font-weight: 600;
+            border: none;
+            border-radius: 100px;
+            font-family: var(--font-family);
+    
+            transition: $trans-all;
+    
+            @include tablet {
+                width: 117px;
+                height: 45px;
+            }
+    
+            &:hover {
+                background-color: $dark-highlight;
+            }
+        }
+    
+        &__error-message {
+            color: $error-color;
+            font-size: 12px;
+        }
+}

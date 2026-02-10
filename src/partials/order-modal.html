@@ -1,0 +1,49 @@
+<div class="order-backdrop">
+    <div class="order">
+        <button type="button" class="order__close-btn" id="closeOrderModal">
+            &times;
+        </button>
+        <h2 class="order__title">
+            Order Your Sweet Treat
+        </h2>
+        <p class="order__subtitle">Select your favorite chocolate and fill in the details</p>
+
+        <form class="order__form" id="mainOrderForm">
+        
+            <div class="order__selection-container">
+                <p class="order__section-label">1. Choose Chocolate:</p>
+        
+                <div class="order__choc-grid" id="modalChocolateList">
+                </div>
+        
+                <input type="hidden" name="selected_chocolate" id="selectedChocInput" required>
+            </div>
+        
+            <div class="order__fields-container">
+                <p class="order__section-label">2. Delivery Info:</p>
+        
+                <div class="order__form-group">
+                    <label class="order__label" for="userName">Full Name</label>
+                    <input class="order__input" type="text" id="userName" name="customer_name" placeholder="Enter your name"
+                        required>
+                </div>
+        
+                <div class="order__form-group">
+                    <label class="order__label" for="userPhone">Phone Number</label>
+                    <input class="order__input" type="tel" id="userPhone" name="customer_phone" placeholder="+380" required>
+                </div>
+        
+                <div class="order__form-group">
+                    <label class="order__label" for="userComment">Comment (optional)</label>
+                    <textarea class="order__textarea" id="userComment" name="customer_comment"
+                        placeholder="Any special requests?"></textarea>
+                </div>
+            </div>
+        
+            <button type="submit" class="order__submit-btn">
+                Confirm and Pay
+            </button>
+        
+        </form>
+    </div>
+</div>
