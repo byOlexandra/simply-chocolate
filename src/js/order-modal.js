@@ -45,11 +45,11 @@ function setupSelectionLogic() {
 
   options.forEach(option => {
     option.addEventListener('click', () => {
-      options.forEach(opt =>
-        opt.classList.remove('order__choc-option--selected')
-      );
-
-      option.classList.add('order__choc-option--selected');
+      if (option.classList.contains('order__choc-option--selected')) {
+        option.classList.remove('order__choc-option--selected');
+      } else {
+        option.classList.add('order__choc-option--selected');
+      }
 
       const productName = option.getAttribute('data-name');
       selectedChocInput.value = productName;
@@ -60,15 +60,13 @@ function setupSelectionLogic() {
 }
 
 export function initOrderModal() {
-    
-    
   if (openOrder && backdrop) {
     openOrder.addEventListener('click', () => {
-      console.log("Кнопку відкриття натиснуто!");
+      console.log('Кнопку відкриття натиснуто!');
       toggleModal(backdrop, true);
     });
-    }
-    
+  }
+
   closeBtn.addEventListener('click', () => {
     toggleModal(backdrop, false);
   });
@@ -83,8 +81,8 @@ export function initOrderModal() {
       toggleModal(backdrop, false);
     }
   });
-    
-    if (!backdrop || !openOrder || !closeBtn || !orderForm) return;
+
+  if (!backdrop || !openOrder || !closeBtn || !orderForm) return;
 
   orderForm.addEventListener('submit', e => {
     e.preventDefault();
