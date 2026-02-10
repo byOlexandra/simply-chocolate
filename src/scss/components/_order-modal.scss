@@ -132,6 +132,29 @@
         &__choc-type {
             font-size: 12px;
         }
+
+        &__submit-btn {
+            background-color: $highlight;
+            width: 150px;
+            padding: 10px 20px;
+            color: var(--text-color);
+            font-size: 16px;
+            font-family: var(--font-family);
+            border: none;
+            border-radius: 20px;
+            font-weight: 500;
+            margin: 0 auto;
+            transition: $trans-all;
+
+            &:hover {
+                transform: translateY(-2px);
+                background-color: $dark-highlight;
+            }
+
+            @include tablet {
+                width: 190px;
+            }
+        }
     
         &__error-message {
             color: $error-color;
