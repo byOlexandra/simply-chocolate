@@ -3,7 +3,7 @@ import 'notyf/notyf.min.css';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
-  subscribe_input: yup.string().email('Invalid email format').required(),
+  subscribe_input: yup.string().email('Invalid email format').required('Enter email'),
 });
 
 export default function initFooter() {
