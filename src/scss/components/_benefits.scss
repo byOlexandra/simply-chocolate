@@ -15,6 +15,7 @@
   }
   &__list {
     @include flex-column;
+    justify-content: center;
     gap: 20px;
 
     @include tablet {
