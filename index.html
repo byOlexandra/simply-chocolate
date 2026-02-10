@@ -8,7 +8,7 @@
     <script type="module" crossorigin src="/simply-chocolate/index.js"></script>
     <link rel="modulepreload" crossorigin href="/simply-chocolate/assets/vendor-B_lUPmVE.js">
     <link rel="stylesheet" crossorigin href="/simply-chocolate/assets/vendor-D_iYfzc_.css">
-    <link rel="stylesheet" crossorigin href="/simply-chocolate/assets/index-DaUhb6Xw.css">
+    <link rel="stylesheet" crossorigin href="/simply-chocolate/assets/index-DBINrl0i.css">
   </head>
   <body>
     <header>
@@ -118,11 +118,60 @@
         <h1 class="hero__title">Treat yourself or a loved one
         to our finest ingredients for a moment of pure delight!</h1>
         <ul class="hero__list">
-            <li class="hero__li"><button type="button" class="hero__btn">Buy now</button></li>
-            <li class="hero__li"><button type="button" class="hero__btn">How it's made?</button></li>
+            <li class="hero__li"><button type="button" class="hero__btn" id="open-order-modal">Buy now</button></li>
+            <li class="hero__li"><button type="button" class="hero__btn"><a href="#tutorial">How it's made?</a></button></li>
         </ul>
     </div>
 </section>
+      <div class="order-backdrop">
+    <div class="order">
+        <button type="button" class="order__close-btn" id="closeOrderModal">
+            &times;
+        </button>
+        <h2 class="order__title">
+            Order Your Sweet Treat
+        </h2>
+        <p class="order__subtitle">Select your favorite chocolate and fill in the details</p>
+
+        <form class="order__form" id="orderForm">
+        
+            <div class="order__selection-container">
+                <p class="order__section-label">1. Choose Chocolate:</p>
+        
+                <div class="order__choc-list" id="modalChocolateList">
+                </div>
+        
+                <input type="hidden" name="selected_chocolate" id="selectedChocInput" required>
+            </div>
+        
+            <div class="order__fields-container">
+                <p class="order__section-label">2. Delivery Info:</p>
+        
+                <div class="order__form-group">
+                    <label class="order__label" for="userName">Full Name</label>
+                    <input class="order__input" type="text" id="userName" name="customer_name" placeholder="Enter your name"
+                        required>
+                </div>
+        
+                <div class="order__form-group">
+                    <label class="order__label" for="userPhone">Phone Number</label>
+                    <input class="order__input" type="tel" id="userPhone" name="customer_phone" placeholder="+380" required>
+                </div>
+        
+                <div class="order__form-group">
+                    <label class="order__label" for="userComment">Comment (optional)</label>
+                    <textarea class="order__textarea" id="userComment" name="customer_comment"
+                        placeholder="Any special requests?"></textarea>
+                </div>
+            </div>
+        
+            <button type="submit" class="order__submit-btn">
+                Confirm
+            </button>
+        
+        </form>
+    </div>
+</div>
       <section id="benefits">
   <div class="container benefits">
     <ul class="benefits__list">
