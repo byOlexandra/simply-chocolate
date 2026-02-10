@@ -14,7 +14,7 @@ function reviewTemplate(obj) {
   return `
         <div class='swiper-slide'>
         <div class='feedback__list-item'>
-            <img class="feedback__list-item-image" src="${obj.photo}" alt="picture of a person who left a review"/>
+            <img class="feedback__list-item-image" src="${obj.photo}" alt="${obj.name}"/>
             <h3 class="feedback__username">${obj.name}</h3>
             <p class="feedback__text">${obj.text}</p>
         </div>
