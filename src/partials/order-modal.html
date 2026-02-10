@@ -1,49 +1,97 @@
 <div class="order-backdrop">
-    <div class="order">
-        <button type="button" class="order__close-btn" id="closeOrderModal">
-            &times;
-        </button>
-        <h2 class="order__title">
-            Order Your Sweet Treat
-        </h2>
-        <p class="order__subtitle">Select your favorite chocolate and fill in the details</p>
+  <div class="order">
+    <button type="button" class="order__close-btn" id="closeOrderModal">
+      &times;
+    </button>
+    <h2 class="order__title">Order Your Sweet Treat</h2>
+    <p class="order__subtitle">
+      Select your favorite chocolate and fill in the details
+    </p>
 
-        <form class="order__form" id="orderForm">
-        
-            <div class="order__selection-container">
-                <p class="order__section-label">1. Choose Chocolate:</p>
-        
-                <div class="order__choc-list" id="modalChocolateList">
-                </div>
-        
-                <input type="hidden" name="selected_chocolate" id="selectedChocInput" required>
-            </div>
-        
-            <div class="order__fields-container">
-                <p class="order__section-label">2. Delivery Info:</p>
-        
-                <div class="order__form-group">
-                    <label class="order__label" for="userName">Full Name</label>
-                    <input class="order__input" type="text" id="userName" name="customer_name" placeholder="Enter your name"
-                        required>
-                </div>
-        
-                <div class="order__form-group">
-                    <label class="order__label" for="userPhone">Phone Number</label>
-                    <input class="order__input" type="tel" id="userPhone" name="customer_phone" placeholder="+380" required>
-                </div>
-        
-                <div class="order__form-group">
-                    <label class="order__label" for="userComment">Comment (optional)</label>
-                    <textarea class="order__textarea" id="userComment" name="customer_comment"
-                        placeholder="Any special requests?"></textarea>
-                </div>
-            </div>
-        
-            <button type="submit" class="order__submit-btn">
-                Confirm
-            </button>
-        
-        </form>
-    </div>
+    <form class="order__form" id="orderForm">
+      <div class="order__selection-container">
+        <p class="order__section-label">1. Choose Chocolate:</p>
+
+        <div class="order__choc-list" id="modalChocolateList"></div>
+
+        <input
+          type="hidden"
+          name="selected_chocolate"
+          id="selectedChocInput"
+          required
+        />
+      </div>
+
+      <div class="order__fields-container">
+        <p class="order__section-label">2. Delivery Info:</p>
+
+        <div class="order__input-box">
+          <div class="order__form-group">
+            <label class="order__label" for="userName">Full Name</label>
+            <input
+              class="order__input"
+              type="text"
+              id="userName"
+              name="customer_name"
+              placeholder="Enter your name"
+            />
+          </div>
+          <div class="order__form-group">
+            <label class="order__label" for="userPhone">Phone Number</label>
+            <input
+              class="order__input"
+              type="tel"
+              id="userPhone"
+              name="customer_phone"
+              placeholder="+380"
+            />
+          </div>
+          <div class="order__form-group">
+            <label class="order__label" for="userEmail">Email (optional)</label>
+            <input
+              class="order__input"
+              type="email"
+              id="userEmail"
+              name="customer_email"
+            />
+          </div>
+        <div class="order__form-group">
+            <label class="order__label" for="userEmail">City</label>
+            <input class="order__input" type="text" id="userCity" name="customer_city" />
+        </div>
+        <div class="order__form-group">
+        <label class="order__label" for="deliveryMethod">Delivery Method</label>
+        <select class="order__input" id="deliveryMethod" name="delivery_method">
+            <option value="nova_poshta">Nova Post</option>
+            <option value="courier">Courier Delivery</option>
+            <option value="pickup">Self-pickup</option>
+        </select>
+        </div>
+        <div class="order__form-group">
+            <label class="order__label" for="userAddress">Address</label>
+            <input class="order__input" type="text" id="userAddress" name="customer_address"
+                placeholder="e.g. Street name" />
+        </div>
+          <div class="order__form-group">
+            <label class="order__label" for="userComment"
+              >Comment (optional)</label
+            >
+            <textarea
+              class="order__textarea"
+              id="userComment"
+              name="customer_comment"
+              placeholder="Any special requests?"
+              rows="3"
+            ></textarea>
+          </div>
+        <div class="order__checkbox-group">
+            <input class="order__checkbox" type="checkbox" id="isGift" name="is_gift">
+            <label class="order__label-checkbox" for="isGift">It's a gift (add special packaging)</label>
+        </div>
+        </div>
+      </div>
+
+      <button type="submit" class="order__submit-btn">Confirm</button>
+    </form>
+  </div>
 </div>
