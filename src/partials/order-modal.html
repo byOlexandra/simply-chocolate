@@ -18,7 +18,6 @@
           type="hidden"
           name="selected_chocolate"
           id="selectedChocInput"
-          required
         />
       </div>
 
@@ -35,6 +34,7 @@
               name="customer_name"
               placeholder="Enter your name"
             />
+            <span class="order__error-message" id="error-customer_name"></span>
           </div>
           <div class="order__form-group">
             <label class="order__label" for="userPhone">Phone Number</label>
@@ -43,8 +43,8 @@
               type="tel"
               id="userPhone"
               name="customer_phone"
-              placeholder="+380"
             />
+            <span class="order__error-message" id="error-customer_phone"></span>
           </div>
           <div class="order__form-group">
             <label class="order__label" for="userEmail">Email <span class="optional-span">(optional)</span></label>
@@ -58,6 +58,7 @@
         <div class="order__form-group">
             <label class="order__label" for="userEmail">City</label>
             <input class="order__input" type="text" id="userCity" name="customer_city" placeholder="e.g. Kyiv" />
+            <span class="order__error-message" id="error-customer_city"></span>
         </div>
         <div class="order__form-group">
         <label class="order__label" for="deliveryMethod">Delivery Method</label>
@@ -67,13 +68,9 @@
             <option value="courier">Courier Delivery</option>
             <option value="pickup">Self-pickup</option>
         </select>
+        <span class="order__error-message" id="error-delivery_method"></span>
         </div>
         <div id="dynamic-fields-container"></div>
-        <!-- <div class="order__form-group">
-            <label class="order__label" for="userAddress">Address</label>
-            <input class="order__input" type="text" id="userAddress" name="customer_address"
-                placeholder="e.g. Ukrainska street" />
-        </div> -->
           <div class="order__form-group">
             <label class="order__label" for="userComment"
               >Comment <span class="optional-span">(optional)</span></label
