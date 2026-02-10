@@ -3,7 +3,7 @@ const backdrop = document.querySelector('.order-backdrop');
 const closeBtn = document.querySelector('#closeOrderModal');
 const modalChocolateList = document.querySelector('#modalChocolateList');
 const selectedChocInput = document.getElementById('selectedChocInput');
-const orderForm = document.getElementById('mainOrderForm');
+const orderForm = document.getElementById('orderForm');
 const deliverySelect = document.getElementById('deliveryMethod');
 const dynamicContainer = document.getElementById('dynamic-fields-container');
 
@@ -110,9 +110,8 @@ export function initOrderModal() {
     }
   });
 
-  if (!backdrop || !openOrder || !closeBtn || !orderForm) return;
-
-  orderForm.addEventListener('submit', e => {
+  if (orderForm) {
+    orderForm.addEventListener('submit', e => {
     e.preventDefault();
 
     if (!selectedChocInput.value) {
@@ -129,4 +128,7 @@ export function initOrderModal() {
       `Thank you, ${orderDetails.customer_name}! Your order for ${orderDetails.selected_chocolate} has been received.`
     );
   });
+  }
+
+  
 }
