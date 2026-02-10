@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Dark Elegance",
+    "type": "Dark Chocolate",
+    "description": "85% cocoa, intense dark flavor with subtle vanilla notes.",
+    "price": 145
+  },
+  {
+    "id": 2,
+    "name": "Milk Pleasure",
+    "type": "Milk Chocolate",
+    "description": "Smooth milk chocolate with whole roasted hazelnuts.",
+    "price": 120
+  },
+  {
+    "id": 3,
+    "name": "Salted Caramel",
+    "type": "Milk Chocolate",
+    "description": "A perfect balance of creamy chocolate and sea salt caramel.",
+    "price": 130
+  },
+  {
+    "id": 4,
+    "name": "Ruby Berry",
+    "type": "Ruby Chocolate",
+    "description": "Naturally pink chocolate with a tart, fruity berry twist.",
+    "price": 160
+  },
+  {
+    "id": 5,
+    "name": "White Velvet",
+    "type": "White Chocolate",
+    "description": "Rich white chocolate with pistachios and lime zest.",
+    "price": 150
+  }
+]

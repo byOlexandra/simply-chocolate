@@ -3,11 +3,12 @@ import mobileMenu from './js/mobile.menu';
 import { toggleTheme, initHeaderScroll } from './js/header';
 import initReviews from './js/feedback';
 import { initReviewModal } from './js/review-modal';
-import { initOrderModal } from './js/order-modal';
+import { initOrderModal, fetchChocolateData } from './js/order-modal';
 
 document.addEventListener('DOMContentLoaded', () => {
     mobileMenu();
-    initOrderModal()
+    initOrderModal();
+    fetchChocolateData()
     toggleTheme();
     initHeaderScroll();
     initReviews();
