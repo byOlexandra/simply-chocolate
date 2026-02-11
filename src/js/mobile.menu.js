@@ -2,33 +2,41 @@ const menu = document.querySelector('[data-menu]');
 const open = document.querySelector('[data-menu-open]');
 const close = document.querySelector('[data-menu-close]');
 const header = document.querySelector('#header');
- 
+
 export default function mobileMenu() {
   if (!menu) return;
 
-    close.addEventListener('click', closeMenu)
-    open.addEventListener('click', openMenu)
+  close.addEventListener('click', closeMenu);
+  open.addEventListener('click', openMenu);
 
-    menu.addEventListener('click', (e) => {
+  menu.addEventListener('click', e => {
     if (e.target.closest('.mm__list-a-item')) {
       closeMenu();
     }
-    });
-    document.body.addEventListener('keydown', e => {
-        if(e.code === 'Escape') closeMenu()
-    })
+  });
+  window.addEventListener('keydown', e => {
+    if (e.code === 'Escape') closeMenu();
+  });
+  menu.addEventListener('click', e => {
+    const isClickOnContent =
+      e.target.closest('.mm__list') ||
+      e.target.closest('.mm__close-btn') ||
+      e.target.closest('.mm__sm-list');
+    if (!isClickOnContent) {
+      closeMenu();
+    }
+  });
 }
 
 const closeMenu = () => {
- if (!menu) return;
+  if (!menu) return;
   menu.classList.remove('is-open');
   document.body.style.overflow = '';
   if (header) header.style.position = 'fixed';
 };
 
 const openMenu = () => {
-   if (!menu) return; 
-    menu.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-}
-
+  if (!menu) return;
+  menu.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+};
