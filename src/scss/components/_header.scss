@@ -2,197 +2,192 @@
 @use '../utils/mixins' as *;
 
 #header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 58px;
-    background-color: transparent;
-    z-index: 1000;
-    margin-bottom: 32px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 58px;
+  background-color: transparent;
+  z-index: 1000;
+  margin-bottom: 32px;
 
-    transition: $trans-all;
+  transition: $trans-all;
 
-    &.header-scrolled {
-        background-color: var(--header-blur);
-    }
+  &.header-scrolled {
+    background-color: var(--header-blur);
+  }
 }
 
 .nav {
+  @include flex-center;
+  justify-content: space-between;
+  margin: 20px 0;
+  height: 18px;
+
+  &__logo-header {
+    font-style: italic;
+    letter-spacing: 0.03em;
+    font-weight: 700;
+
+    display: flex;
+    gap: 4px;
+    align-items: center;
+
+    @media only screen and (min-width: $desktop) {
+      font-size: 18px;
+    }
+  }
+
+  &__logo-normal {
+    font-style: normal;
+  }
+
+  &__block {
+    display: $hidden;
+
+    @include desktop {
+      display: $visible;
+      @include flex-center;
+      gap: 150px;
+    }
+  }
+
+  &__toggle-theme-box {
     @include flex-center;
-    justify-content: space-between;
-    margin: 20px 0;
-    height: 18px;
-    
-    &__logo-header {
-        font-style: italic;
-        letter-spacing: 0.03em;
-        font-weight: 700;
-    
-        display: flex;
-        gap: 4px;
-        align-items: center;
+    gap: 6px;
+    svg {
+      stroke: var(--stroke-color);
+      fill: var(--stroke-color);
 
-        @media only screen and (min-width: $desktop) {
-            font-size: 18px;
-        }
+      transition: $trans-stroke;
+    }
+  }
+
+  #theme-toggle {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  &__slider {
+    width: 46px;
+    height: 22px;
+    background-color: $light-grey;
+    border-radius: 11px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  &__circle {
+    width: 16px;
+    height: 16px;
+    background-color: $white-clr;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s;
+  }
+
+  #theme-toggle:checked + &__slider &__circle {
+    transform: translateX(24px);
+  }
+
+  #theme-toggle:checked + &__slider {
+    background-color: $highlight;
+  }
+
+  &__list {
+    @include flex-center;
+    gap: 24px;
+
+    @include desktop {
+      gap: 60px;
+    }
+  }
+
+  &__list-a-item {
+    position: relative;
+    transition: $trans-color;
+
+    &::after {
+      content: '';
+      width: 100%;
+      height: 4px;
+      border-radius: 4px;
+      background-color: $highlight;
+
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      transition: $trans-transform;
+
+      transform: scaleX(0);
+      transform-origin: bottom right;
     }
 
-    &__logo-normal {
-        font-style: normal;
+    &:hover {
+      color: $highlight;
     }
 
-    &__block {
-        display: $hidden;
-
-        @include desktop {
-            display: $visible;
-            @include flex-center;
-            gap: 150px;
-        }
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
     }
+  }
 
-    &__toggle-theme-box {
-        @include flex-center;
-        gap: 6px;
-        svg {
-            stroke: var(--stroke-color);
-            fill: var(--stroke-color);
+  &__sm-list {
+    @include flex-center;
+    gap: 18px;
+  }
 
-            transition: $trans-stroke;
-        }
+  &__sm-btn-buy {
+    background-color: transparent;
+    border: none;
+    @include flex-center;
+  }
+
+  &__sm-buy-icon {
+    stroke: var(--stroke-color);
+    fill: var(--fill-color);
+    transition: $trans-all;
+    &:hover {
+      stroke: $highlight;
+      fill: $highlight;
     }
+  }
 
-    #theme-toggle {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
+  &__sm-icon {
+    @include flex-center;
+
+    fill: transparent;
+    stroke: var(--stroke-color);
+
+    transition: $trans-stroke;
+
+    &:hover {
+      stroke: $highlight;
     }
+  }
 
-    &__slider {
-        width: 46px;
-        height: 22px;
-        background-color: $light-grey;
-        border-radius: 11px;
-        position: relative;
-        cursor: pointer;
-        transition: background-color 0.3s;
+  &__burger-btn {
+    @include flex-center;
+    @include btn-setting;
+    width: 28px;
+    height: 28px;
+
+    @include desktop {
+      display: $hidden;
     }
+  }
 
-    &__circle {
-        width: 16px;
-        height: 16px;
-        background-color: $white-clr;
-        border-radius: 50%;
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        transition: transform 0.3s;
-    }
-
-    #theme-toggle:checked+&__slider &__circle {
-        transform: translateX(24px);
-    }
-
-    #theme-toggle:checked+&__slider {
-        background-color: $highlight;
-    }
-
-    &__list {
-        @include flex-center;
-        gap: 24px;
-
-        @include desktop {
-            gap: 60px;
-        }
-    }
-
-    &__list-a-item {
-        position: relative;
-        transition: $trans-color;
-
-        &::after {
-            content: '';
-            width: 100%;
-            height: 4px;
-            border-radius: 4px;
-            background-color: $highlight;
-
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            transition: $trans-transform;
-
-            transform: scaleX(0);
-            transform-origin: bottom right;
-        }
-
-        &:hover {
-            color: $highlight;
-        }
-
-        &:hover::after {
-            transform: scaleX(1);
-            transform-origin: bottom left; 
-        }
-    }
-
-    &__sm-list {
-        @include flex-center;
-        gap: 18px;
-    }
-
-    &__sm-btn-buy {
-        background-color: transparent;
-        border: none;
-        @include flex-center;
-
-        // &:hover {
-        //     stroke: $highlight;
-        //     fill: $highlight;
-        // }
-    }
-
-    &__sm-buy-icon {
-        stroke: var(--stroke-color);
-            // fill: var(--fill-color);
-        &:hover {
-        stroke: $highlight;
-        fill: $highlight;
-    }
-    }
-    
-    &__sm-icon {
-        @include flex-center;
-
-        fill: transparent;
-        stroke: var(--stroke-color);
-
-        transition: $trans-stroke;
-
-        &:hover {
-            stroke: $highlight;
-        }
-    }
-
-    &__burger-btn {
-        @include flex-center;
-        @include btn-setting;
-        width: 28px;
-        height: 28px;
-
-        @include desktop {
-            display: $hidden;
-        }
-    }
-
-    &__burger-icon {
-        stroke: var(--stroke-color);
-    }   
+  &__burger-icon {
+    stroke: var(--stroke-color);
+  }
 }
-
