@@ -12,6 +12,7 @@ const orderForm = document.getElementById('orderForm');
 const deliverySelect = document.getElementById('deliveryMethod');
 const dynamicContainer = document.getElementById('dynamic-fields-container');
 const phoneInput = document.getElementById('userPhone');
+const basketIcon = document.querySelector('[data-open-order]')
 
 const deliveryWays = ['nova_poshta', 'courier', 'pickup'];
 
@@ -63,6 +64,7 @@ const toggleModal = (backdrop, isOpen) => {
 };
 
 export async function fetchChocolateData() {
+  initOrderModal()
   try {
     const res = await fetch('./chocolates.json');
     if (!res.ok) {
@@ -182,7 +184,17 @@ function handleSubmission() {
   }
 }
 
-export function initOrderModal() {
+function initOrderModal() {
+  if (basketIcon) {
+    basketIcon.addEventListener('click', e => {
+      toggleModal(backdrop, true);
+      orderForm.reset();
+      mask.value = '';
+      mask.updateValue();
+
+      clearErrorMessages();
+    })
+  }
   if (openOrder && backdrop) {
     openOrder.addEventListener('click', () => {
       toggleModal(backdrop, true);
