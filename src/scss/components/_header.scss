@@ -146,6 +146,26 @@
         @include flex-center;
         gap: 18px;
     }
+
+    &__sm-btn-buy {
+        background-color: transparent;
+        border: none;
+        @include flex-center;
+
+        // &:hover {
+        //     stroke: $highlight;
+        //     fill: $highlight;
+        // }
+    }
+
+    &__sm-buy-icon {
+        stroke: var(--stroke-color);
+            // fill: var(--fill-color);
+        &:hover {
+        stroke: $highlight;
+        fill: $highlight;
+    }
+    }
     
     &__sm-icon {
         @include flex-center;
