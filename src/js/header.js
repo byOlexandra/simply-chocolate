@@ -1,3 +1,5 @@
+const header = document.getElementById('header');
+
 export function toggleTheme() {
     const toggleThemeBtn = document.querySelectorAll('.theme-toggle-input');
     const currentTheme = localStorage.getItem('theme');
@@ -31,12 +33,18 @@ export function toggleTheme() {
 }
 
 export function initHeaderScroll() {
-    const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('header-scrolled'); 
-        } else {
-            header.classList.remove('header-scrolled');
-        }
-    })
+    window.addEventListener('scroll', checkScroll);
+
+    window.addEventListener('DOMContentLoaded', checkScroll);
+
+    window.addEventListener('load', checkScroll);
 }
+
+function checkScroll() {
+    if (window.scrollY > 0) {
+        header.classList.add('header-scrolled'); 
+    } else {
+        header.classList.remove('header-scrolled');
+    }
+}
+
