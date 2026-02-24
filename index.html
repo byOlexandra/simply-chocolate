@@ -43,7 +43,7 @@
                     <label class="nav__theme-switch" for="theme-toggle">
                 </div>
                 <ul class="nav__sm-list">
-                    <li><button type="button" class="nav__sm-btn-buy" data-open-order>
+                    <li><button type="button" class="nav__sm-btn-buy" data-open-order aria-label="Open order form">
                             <svg class="nav__sm-buy-icon" width="24" height="24">
                                 <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-basket"></use>
                             </svg>
@@ -69,7 +69,7 @@
 </section>
       <div class="mm" data-menu>
     <div class="container mm__container">
-        <button type="button" class="mm__close-btn" data-menu-close>
+        <button type="button" class="mm__close-btn" data-menu-close aria-label="Open mobile menu">
             <svg class="mm__close-icon" width="12" height="12">
                 <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-close"></use>
             </svg>
@@ -83,7 +83,7 @@
             </ul>
             <div class="mm__bottom">
                 <ul class="mm__sm-list">
-                    <li><button type="button" class="nav__sm-btn-buy" data-open-order>
+                    <li><button type="button" class="nav__sm-btn-buy" data-open-order aria-label="Open order form">
                             <svg class="mm__sm-buy-icon" width="24" height="24">
                                 <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-basket"></use>
                             </svg>
@@ -135,7 +135,12 @@
 </section>
       <div class="order-backdrop">
   <div class="order">
-    <button type="button" class="order__close-btn" id="closeOrderModal">
+    <button
+      type="button"
+      class="order__close-btn"
+      id="closeOrderModal"
+      aria-label="Close modal window"
+    >
       &times;
     </button>
     <h2 class="order__title">Order Your Sweet Treat</h2>
@@ -514,7 +519,7 @@
 
         <div class="swiper-scrollbar"></div>
       </div>
-      <button type="button" class="swiper-button-next feedback__arrow-btn">
+      <button type="button" class="swiper-button-next feedback__arrow-btn" aria-label="Open review form">
         <svg class="feedback__arrow" width="20" height="20">
           <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-arrow-right"></use>
         </svg>
