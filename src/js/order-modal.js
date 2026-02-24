@@ -130,7 +130,7 @@ function setupDeliveryLogic() {
       dynamicContainer.innerHTML = `
       <div class="order__form-group">
         <label class="order__label" for="npOffice">Post Office Number</label>
-        <input class="order__input" type="text" id="npOffice" name="customer_npoffice" placeholder="e.g. 1545" />
+        <input class="order__input" type="text" id="npOffice" name="customer_npoffice" placeholder="e.g. 1545" autocomplete="off" />
         <span class="order__error-message" id="error-customer_npoffice"></span>
       </div>
     `;
