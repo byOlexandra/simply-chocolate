@@ -138,7 +138,7 @@ function setupDeliveryLogic() {
       dynamicContainer.innerHTML = `
       <div class="order__form-group">
             <label class="order__label" for="userAddress">Address</label>
-            <input class="order__input" type="text" id="userAddress" name="customer_address"
+            <input class="order__input" type="text" id="userAddress" name="customer_address" autocomplete="street-address"
                 placeholder="e.g. Ukrainska street" />
                 <span class="order__error-message" id="error-customer_address"></span>
         </div>
