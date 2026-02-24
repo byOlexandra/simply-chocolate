@@ -61,6 +61,7 @@ const clearErrorMessages = () =>
 
 const toggleModal = (backdrop, isOpen) => {
   backdrop.classList.toggle('is-open', isOpen);
+  
   if (isOpen) {
     document.body.classList.add('no-scroll');
   } else {
