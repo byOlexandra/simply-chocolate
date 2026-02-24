@@ -12,7 +12,6 @@ const feedbackList = document.querySelector('.feedback__list');
 export default async function fetchUsers() {
   const cachedData = localStorage.getItem(STORAGE_KEY);
   if (cachedData) {
-    console.log("✅ Беру дані з кешу, нічого не міняю");
     renderReviews(JSON.parse(cachedData));
     return;
   }

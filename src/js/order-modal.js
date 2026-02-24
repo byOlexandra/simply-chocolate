@@ -2,6 +2,7 @@ import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 import * as yup from 'yup';
 import IMask from 'imask';
+import { closeMenu } from './mobile-menu';
 
 const openOrder = document.querySelector('#open-order-modal');
 const backdrop = document.querySelector('.order-backdrop');
@@ -12,7 +13,7 @@ const orderForm = document.getElementById('orderForm');
 const deliverySelect = document.getElementById('deliveryMethod');
 const dynamicContainer = document.getElementById('dynamic-fields-container');
 const phoneInput = document.getElementById('userPhone');
-const basketIcon = document.querySelector('[data-open-order]')
+const basketIcons = document.querySelectorAll('[data-open-order]')
 
 const deliveryWays = ['nova_poshta', 'courier', 'pickup'];
 
@@ -185,16 +186,20 @@ function handleSubmission() {
 }
 
 function initOrderModal() {
-  if (basketIcon) {
-    basketIcon.addEventListener('click', e => {
-      toggleModal(backdrop, true);
+  // if (basketIcons) {
+    basketIcons.forEach(icon => {
+      icon.addEventListener('click', e => {
+        toggleModal(backdrop, true);
+        closeMenu()
       orderForm.reset();
       mask.value = '';
       mask.updateValue();
 
       clearErrorMessages();
     })
-  }
+    })
+    
+  // }
   if (openOrder && backdrop) {
     openOrder.addEventListener('click', () => {
       toggleModal(backdrop, true);
@@ -209,6 +214,7 @@ function initOrderModal() {
   closeBtn.addEventListener('click', () => {
     toggleModal(backdrop, false);
   });
+
   backdrop.addEventListener('click', e => {
     if (e.target === e.currentTarget) {
       toggleModal(backdrop, false);
@@ -220,6 +226,7 @@ function initOrderModal() {
       toggleModal(backdrop, false);
     }
   });
+
   handleSubmission();
 }
 

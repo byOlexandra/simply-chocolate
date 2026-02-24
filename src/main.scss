@@ -1,14 +1,14 @@
-// Налаштування (змінні та міксини)
+// Settings (variables and mixins)
 @use '/scss/utils/variables';
 @use '/scss/utils/mixins';
 
-// Базові стилі
+// Basic styles
 @use '/scss/base/reset';
 @use '/scss/base/base';
 @use '/scss/base/container';
 @use '/scss/base/fonts';
 
-// Компоненти (секційна верстка)
+// Components 
 @use '/scss/components/header';
 @use '/scss/components/mobile-menu';
 @use '/scss/components/hero';

@@ -28,7 +28,7 @@ export default function mobileMenu() {
   });
 }
 
-const closeMenu = () => {
+export const closeMenu = () => {
   if (!menu) return;
   menu.classList.remove('is-open');
   document.body.style.overflow = '';

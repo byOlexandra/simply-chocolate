@@ -1,5 +1,5 @@
 import './main.scss'
-import mobileMenu from './js/mobile.menu';
+import mobileMenu from './js/mobile-menu';
 import { toggleTheme, initHeaderScroll } from './js/header';
 import fetchUsers from './js/feedback';
 import { initReviewModal } from './js/review-modal';
