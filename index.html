@@ -48,12 +48,12 @@
                                 <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-basket"></use>
                             </svg>
                         </button></li>
-                    <li><a href="https://www.instagram.com/" target="_blank">
+                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                         <svg class="nav__sm-icon" width="24" height="24">
                             <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-instagram"></use>
                         </svg>
                     </a></li>
-                    <li><a href="https://x.com/" target="_blank" class="nav__sm-icon">
+                    <li><a href="https://x.com/" target="_blank" class="nav__sm-icon" rel="noopener noreferrer">
                         <svg width="24" height="24">
                             <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-twitter"></use>
                         </svg>
@@ -88,13 +88,13 @@
                                 <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-basket"></use>
                             </svg>
                         </button></li>
-                    <li><a href="https://www.instagram.com/" target="_blank">
+                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                             <svg class="mm__sm-icon" width="24" height="24">
                                 <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-instagram"></use>
                             </svg>
                         </a>
                     </li>
-                    <li><a href="https://x.com/" target="_blank">
+                    <li><a href="https://x.com/" target="_blank" rel="noopener noreferrer">
                             <svg class="mm__sm-icon" width="24" height="24">
                                 <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-twitter"></use>
                             </svg>
@@ -153,6 +153,7 @@
           type="hidden"
           name="selected_chocolate"
           id="selectedChocInput"
+          autocomplete="off"
         />
       </div>
 
@@ -184,7 +185,9 @@
             <span class="order__error-message" id="error-customer_phone"></span>
           </div>
           <div class="order__form-group">
-            <label class="order__label" for="userEmail">Email <span class="optional-span">(optional)</span></label>
+            <label class="order__label" for="userEmail"
+              >Email <span class="optional-span">(optional)</span></label
+            >
             <input
               class="order__input"
               type="email"
@@ -193,22 +196,38 @@
               autocomplete="email"
             />
           </div>
-        <div class="order__form-group">
-            <label class="order__label" for="userEmail">City</label>
-            <input class="order__input" type="text" id="userCity" name="customer_city" placeholder="e.g. Kyiv" />
+          <div class="order__form-group">
+            <label class="order__label" for="userCity">City</label>
+            <input
+              class="order__input"
+              type="text"
+              id="userCity"
+              name="customer_city"
+              placeholder="e.g. Kyiv"
+              autocomplete="address-level2"
+            />
             <span class="order__error-message" id="error-customer_city"></span>
-        </div>
-        <div class="order__form-group">
-        <label class="order__label" for="deliveryMethod">Delivery Method</label>
-        <select class="order__input" id="deliveryMethod" name="delivery_method">
-          <option value="" disabled selected>Select method</option>
-            <option value="nova_poshta">Nova Post</option>
-            <option value="courier">Courier Delivery</option>
-            <option value="pickup">Self-pickup</option>
-        </select>
-        <span class="order__error-message" id="error-delivery_method"></span>
-        </div>
-        <div id="dynamic-fields-container"></div>
+          </div>
+          <div class="order__form-group">
+            <label class="order__label" for="deliveryMethod"
+              >Delivery Method</label
+            >
+            <select
+              class="order__input"
+              id="deliveryMethod"
+              name="delivery_method"
+            >
+              <option value="" disabled selected>Select method</option>
+              <option value="nova_poshta">Nova Post</option>
+              <option value="courier">Courier Delivery</option>
+              <option value="pickup">Self-pickup</option>
+            </select>
+            <span
+              class="order__error-message"
+              id="error-delivery_method"
+            ></span>
+          </div>
+          <div id="dynamic-fields-container"></div>
           <div class="order__form-group">
             <label class="order__label" for="userComment"
               >Comment <span class="optional-span">(optional)</span></label
@@ -221,11 +240,17 @@
               rows="2"
             ></textarea>
           </div>
-        
         </div>
         <div class="order__checkbox-group">
-            <input class="order__checkbox" type="checkbox" id="isGift" name="is_gift">
-            <label class="order__label-checkbox" for="isGift">It's a gift (add special packaging)</label>
+          <input
+            class="order__checkbox"
+            type="checkbox"
+            id="isGift"
+            name="is_gift"
+          />
+          <label class="order__label-checkbox" for="isGift"
+            >It's a gift (add special packaging)</label
+          >
         </div>
       </div>
 
@@ -313,9 +338,10 @@
       <li class="products__list-item">
         <div class="products__img-overlay">
           <img
-            src="/simply-chocolate/assets/pieces-of-chocolate@2x-Tm20xa9z.png"
+            src="/simply-chocolate/assets/pieces-of-chocolate@2x-Csk9ii6O.webp"
             alt="pieces of milk chocolate"
             class="products__img"
+            loading="lazy"
           />
           <p class="products__product-name">MILK CHOCOLATE</p>
           <div class="products__overlay">
@@ -341,9 +367,10 @@
       <li class="products__list-item">
         <div class="products__img-overlay">
           <img
-            src="/simply-chocolate/assets/milk-bottle@2x-BBYtyqk3.png"
+            src="/simply-chocolate/assets/milk-bottle@2x-QkFIH1Js.webp"
             alt="milk bottle"
             class="products__img"
+            loading="lazy"
           />
           <p class="products__product-name">MILK</p>
           <div class="products__overlay">
@@ -369,9 +396,10 @@
       <li class="products__list-item">
         <div class="products__img-overlay">
           <img
-            src="/simply-chocolate/assets/nuts@2x-Dhip9EWQ.png"
+            src="/simply-chocolate/assets/nuts@2x-DAdQCWnP.webp"
             alt="nuts"
             class="products__img"
+            loading="lazy"
           />
           <p class="products__product-name">NUTS</p>
           <div class="products__overlay">
@@ -397,9 +425,10 @@
       <li class="products__list-item">
         <div class="products__img-overlay">
           <img
-            src="/simply-chocolate/assets/beans@2x-BObDixgx.png"
+            src="/simply-chocolate/assets/beans@2x-BWrz0Hb-.webp"
             alt="cacao beans"
             class="products__img"
+            loading="lazy"
           />
           <p class="products__product-name">SEMI - SWEET CHOCOLATE</p>
           <div class="products__overlay">
@@ -514,6 +543,7 @@
             name="username"
             id="username"
             class="review-modal__input"
+            autocomplete="name"
           />
           <svg class="review-modal__input-icon" width="17" height="17">
             <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-user"></use>
@@ -529,6 +559,7 @@
             name="email"
             id="email"
             class="review-modal__input"
+            autocomplete="email"
           />
         <svg class="review-modal__input-icon" width="17" height="17">
             <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-mail"></use>
@@ -544,6 +575,7 @@
             name="phone"
             id="phone"
             class="review-modal__input"
+            autocomplete="tel"
           />
         <svg class="review-modal__input-icon" width="17" height="17">
             <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-phone"></use>
@@ -608,7 +640,7 @@
             </nav>
             <div class="footer__newsletter">
                 <div class="footer__sub-box">
-                    <input type="text" name="subscribe_input" class="footer__input" placeholder="Enter your email">
+                    <input type="text" name="subscribe_input" class="footer__input" placeholder="Enter your email" autocomplete="email">
                 
                     <button type="submit" class="footer__sub-btn">Subscribe</button>
                 </div>
