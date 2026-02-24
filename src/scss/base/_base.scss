@@ -71,6 +71,10 @@ body {
   font-family: var(--font-family);
   color: var(--text-color);
   background-color: var(--bg-color);
+
+  &.no-scroll {
+    overflow: hidden;
+  }
 }
 
 .hidden {

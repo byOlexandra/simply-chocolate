@@ -14,9 +14,11 @@ export default function mobileMenu() {
       closeMenu();
     }
   });
+  
   window.addEventListener('keydown', e => {
     if (e.code === 'Escape') closeMenu();
   });
+
   menu.addEventListener('click', e => {
     const isClickOnContent =
       e.target.closest('.mm__list') ||

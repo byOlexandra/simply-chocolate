@@ -61,7 +61,11 @@ const clearErrorMessages = () =>
 
 const toggleModal = (backdrop, isOpen) => {
   backdrop.classList.toggle('is-open', isOpen);
-  document.body.style.overflow = isOpen ? 'hidden' : 'visible';
+  if (isOpen) {
+    document.body.classList.add('no-scroll');
+  } else {
+    document.body.classList.remove('no-scroll');
+  }
 };
 
 export async function fetchChocolateData() {
@@ -186,7 +190,7 @@ function handleSubmission() {
 }
 
 function initOrderModal() {
-  // if (basketIcons) {
+  if (basketIcons) {
     basketIcons.forEach(icon => {
       icon.addEventListener('click', e => {
         toggleModal(backdrop, true);
@@ -199,7 +203,7 @@ function initOrderModal() {
     })
     })
     
-  // }
+  }
   if (openOrder && backdrop) {
     openOrder.addEventListener('click', () => {
       toggleModal(backdrop, true);
