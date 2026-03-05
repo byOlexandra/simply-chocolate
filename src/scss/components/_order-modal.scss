@@ -174,16 +174,12 @@
     font-size: 14px;
 
     outline: none;
-    border: 1.5px solid var(--input-color);
+    border: 2px solid var(--input-color);
     border-radius: 8px;
 
     transition: $trans-all;
 
-    &:hover {
-      border-color: var(--highlight);
-    }
-
-    &:focus-within {
+    &:focus {
       border-color: var(--highlight);
     }
 
@@ -279,7 +275,8 @@
     margin: 0 auto;
     transition: $trans-all;
 
-    &:hover {
+    &:hover,
+    &:focus {
       transform: translateY(-2px);
       background-color: $dark-highlight;
     }

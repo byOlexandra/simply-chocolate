@@ -135,11 +135,7 @@
 
     transition: $trans-all;
 
-    &:hover {
-      border-color: var(--highlight);
-    }
-
-    &:focus-within {
+    &:focus {
       border-color: var(--highlight);
     }
 
@@ -245,7 +241,8 @@
       height: 45px;
     }
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $dark-highlight;
     }
   }
