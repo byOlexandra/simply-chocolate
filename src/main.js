@@ -1,6 +1,6 @@
 import './main.scss'
 import mobileMenu from './js/mobile-menu';
-import { toggleTheme, initHeaderScroll } from './js/header';
+import { toggleTheme, initHeaderScroll, initIntersecting } from './js/header';
 import fetchUsers from './js/feedback';
 import { initReviewModal } from './js/review-modal';
 import { fetchChocolateData } from './js/order-modal';
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetchChocolateData()
     toggleTheme();
     initHeaderScroll();
+    initIntersecting();
     fetchUsers();
     initReviewModal();
     initFooter()

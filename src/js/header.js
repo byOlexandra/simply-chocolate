@@ -58,3 +58,33 @@ function checkScroll() {
     header.classList.remove('header-scrolled');
   }
 }
+
+export function initIntersecting() {
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav__list-a-item');
+
+  const options = {
+    root: null,
+    threshold: 0.5,
+    rootMargin: "-10% 0px -40% 0px",
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const sectionId = entry.target.getAttribute('id');
+
+        navLinks.forEach((link) => {
+          link.classList.remove('active')
+          if (link.dataset.section === sectionId) {
+            link.classList.add('active')
+          }
+        })
+
+      }
+    })
+  }, options)
+
+  sections.forEach((section) => observer.observe(section))
+}
+
