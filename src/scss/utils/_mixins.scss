@@ -36,7 +36,7 @@
 }
 
 @mixin title1Mob {
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 1.2;
     letter-spacing: -3%;
     width: 299px;
@@ -44,14 +44,14 @@
 }
 
 @mixin titleTab {
-    font-size: 28px;
+    font-size: 0.75rem;
 }
 
 @mixin btnSet {
     border-color: transparent;
     border-radius: 100px;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 1rem;
     color: $white-clr;
 
     display: flex;

@@ -67,7 +67,7 @@
     }
 
     @include desktop {
-      font-size: 28px;
+      font-size: 1.75rem;
       width: 34px;
       height: 34px;
     }
@@ -76,7 +76,7 @@
   &__title {
     display: block;
     margin-bottom: 35px;
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 1.2;
     width: 261px;
     text-align: left;
@@ -130,7 +130,7 @@
     font-size: 14px;
 
     outline: none;
-    border: 1.5px solid var(--input-color);
+    border: 0.125rem solid var(--input-color);
     border-radius: 8px;
 
     transition: $trans-all;
@@ -144,20 +144,22 @@
     }
 
     @include desktop {
-      font-size: 16px;
+      font-size: 1rem;
     }
   }
 
   &__textarea {
     background-color: transparent;
     resize: vertical;
+    min-height: 50px;
+    max-height: 130px;
     padding: 14px 18px;
     outline: none;
     border: 1.5px solid var(--input-color);
     border-radius: 8px;
     caret-color: var(--caret-color);
     color: var(--text-color);
-    font-size: 14px;
+    font-size: 0.875rem;
     font-family: var(--font-family);
 
     transition: $trans-all;
@@ -213,11 +215,11 @@
   }
 
   &__checkbox-label {
-    font-size: 12px;
+    font-size: 1rem;
     letter-spacing: -0.02em;
   }
 
-  &__terms-span {
+  &__terms-link {
     text-decoration: underline;
     cursor: pointer;
   }
@@ -249,6 +251,6 @@
 
   &__error-message {
     color: $error-color;
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 }

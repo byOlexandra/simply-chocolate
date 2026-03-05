@@ -49,6 +49,7 @@
 html {  
   scrollbar-color: var(--highlight);
   scrollbar-width: thin;
+  scrollbar-gutter: stable;
   &::-webkit-scrollbar {
     width: 8px;
   }
