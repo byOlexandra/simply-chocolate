@@ -32,7 +32,8 @@
                         </a>
                     </li>
                 </ul>
-                <div class="mm__toggle-theme-box">
+
+                <!-- <div class="mm__toggle-theme-box">
                     <svg width="16" height="16">
                         <use href="/img/sprite.svg#icon-sun"></use>
                     </svg>
@@ -47,7 +48,30 @@
                         <use href="/img/sprite.svg#icon-moon"></use>
                     </svg>
                     <label class="nav__theme-switch" for="theme-toggle">
+                </div> -->
+
+                <div class="mm__toggle-theme-box">
+                    <label for="theme-toggle" class="mm__theme-label" aria-label="Choose light theme">
+                        <svg width="16" height="16">
+                            <use href="/img/sprite.svg#icon-sun"></use>
+                        </svg>
+                    </label>
+                
+                    <label class="nav__theme-switch">
+                        <input type="checkbox" id="theme-toggle" role="switch" class="theme-toggle-input visually-hidden">
+                
+                        <div class="nav__slider">
+                            <span class="nav__circle"></span>
+                        </div>
+                    </label>
+                
+                    <label for="theme-toggle" class="nav__theme-label" aria-label="Choose dark theme">
+                        <svg width="16" height="16">
+                            <use href="/img/sprite.svg#icon-moon"></use>
+                        </svg>
+                    </label>
                 </div>
+
             </div>
         </div>
     </div>    
