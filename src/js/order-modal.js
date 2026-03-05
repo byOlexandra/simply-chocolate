@@ -3,6 +3,8 @@ import 'notyf/notyf.min.css';
 import * as yup from 'yup';
 import IMask from 'imask';
 import { closeMenu } from './mobile-menu';
+import TomSelect from "tom-select";
+import "tom-select/dist/css/tom-select.css";
 
 const openOrder = document.querySelector('#open-order-modal');
 const backdrop = document.querySelector('.order-backdrop');
@@ -121,6 +123,12 @@ function setupSelectionLogic() {
 }
 
 function setupDeliveryLogic() {
+    new TomSelect("#deliveryMethod", {
+      create: false,
+      placeholder: "Select method",
+      allowEmptyOption: true,
+    });
+
   deliverySelect.addEventListener('change', e => {
     const method = e.target.value;
 
