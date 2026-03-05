@@ -55,7 +55,7 @@
     @include btnSet;
   }
 
-  background-color: $highlight;
+  background-color: var(--highlight);
   background-image: url(/img/hero/hero-mobile.webp);
   background-repeat: no-repeat;
   background-position: center;

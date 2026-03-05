@@ -128,13 +128,17 @@
       color: rgba(255, 255, 255, 0.7);
     }
 
+    &:focus {
+      border-color: var(--highlight);
+    }
+
     @include tablet {
       width: 232px;
     }
   }
 
   &__sub-btn {
-    background-color: $highlight;
+    background-color: var(--highlight);
     border: none;
     border-radius: 100px;
     color: $white-clr;
@@ -146,7 +150,8 @@
 
     transition: $trans-all;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $dark-highlight;
     }
     @include tablet {
@@ -154,6 +159,7 @@
       height: 45px;
     }
   }
+
   &__error_subscribe {
     color: red;
     font-size: 12px;

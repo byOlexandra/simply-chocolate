@@ -71,12 +71,12 @@
     border-radius: 15px;
 
     &:nth-child(1) {
-      background-color: $highlight;
+      background-color: var(--highlight);
       color: $white-clr;
     }
 
     &:nth-child(even) {
-      border-color: $highlight;
+      border-color: var(--highlight);
       border-style: solid;
       border-width: 1px;
     }
@@ -84,8 +84,9 @@
     &:nth-child(3) {
       background-color: var(--bg-nuts-box);
       color: $white-clr;
+      
       &:hover {
-        border-color: $highlight;
+        border-color: var(--highlight);
         border-style: solid;
         border-width: 1px;
         z-index: 3;
@@ -140,7 +141,7 @@
     & > li:last-child {
       .products__overlay-btn {
         background-color: transparent;
-        border-color: $highlight;
+        border-color: var(--highlight);
       }
     }
   }

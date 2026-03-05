@@ -8,26 +8,33 @@
 
             <div class="nav__block">
                 <ul class="nav__list">
-                    <li><a href="#" class="nav__list-a-item">Home</a></li>
-                    <li><a href="#tutorial" class="nav__list-a-item">How it's made?</a></li>
-                    <li><a href="#feedback" class="nav__list-a-item">Chocolate is loved</a></li>
+                    <li><a href="#" data-section="hero" class="nav__list-a-item">Home</a></li>
+                    <li><a href="#tutorial" data-section="tutorial" class="nav__list-a-item">How it's made?</a></li>
+                    <li><a href="#feedback" data-section="feedback" class="nav__list-a-item">Chocolate is loved</a></li>
                 </ul>
-                <div class="nav__toggle-theme-box">
-                    <svg width="16" height="16">
-                        <use href="/img/sprite.svg#icon-sun"></use>
-                    </svg>
-                    <label class="nav__theme-switch" for="theme-toggle">
-                        <input type="checkbox" id="theme-toggle" role="switch" class="theme-toggle-input">
 
+                <div class="nav__toggle-theme-box">
+                    <label for="theme-toggle" class="nav__theme-label" aria-label="Choose light theme">
+                        <svg width="16" height="16">
+                            <use href="/img/sprite.svg#icon-sun"></use>
+                        </svg>
+                    </label>
+                
+                    <label class="nav__theme-switch">
+                        <input type="checkbox" id="theme-toggle" role="switch" class="theme-toggle-input visually-hidden">
+                
                         <div class="nav__slider">
                             <span class="nav__circle"></span>
                         </div>
+                    </label> 
+                
+                    <label for="theme-toggle" class="nav__theme-label" aria-label="Choose dark theme">
+                        <svg width="16" height="16">
+                            <use href="/img/sprite.svg#icon-moon"></use>
+                        </svg>
                     </label>
-                    <svg width="16" height="16">
-                        <use href="/img/sprite.svg#icon-moon"></use>
-                    </svg>
-                    <label class="nav__theme-switch" for="theme-toggle">
                 </div>
+
                 <ul class="nav__sm-list">
                     <li><button type="button" class="nav__sm-btn-buy" data-open-order aria-label="Open order form">
                             <svg class="nav__sm-buy-icon" width="24" height="24">
