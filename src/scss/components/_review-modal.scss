@@ -151,6 +151,8 @@
   &__textarea {
     background-color: transparent;
     resize: vertical;
+    min-height: 50px;
+    max-height: 130px;
     padding: 14px 18px;
     outline: none;
     border: 1.5px solid var(--input-color);
@@ -217,7 +219,7 @@
     letter-spacing: -0.02em;
   }
 
-  &__terms-span {
+  &__terms-link {
     text-decoration: underline;
     cursor: pointer;
   }
