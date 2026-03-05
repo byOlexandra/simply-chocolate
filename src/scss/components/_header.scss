@@ -103,6 +103,12 @@
     background-color: $highlight;
   }
 
+  &__theme-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+
   &__list {
     @include flex-center;
     gap: 24px;
@@ -190,4 +196,23 @@
   &__burger-icon {
     stroke: var(--stroke-color);
   }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+}
+
+.theme-toggle-input:focus-visible+.nav__slider {
+  outline: 2px solid $black-clr; 
+  outline-offset: 2px;
+  border-radius: 20px;
 }
