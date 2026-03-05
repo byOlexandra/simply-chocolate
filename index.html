@@ -8,7 +8,7 @@
     <script type="module" crossorigin src="/simply-chocolate/index.js"></script>
     <link rel="modulepreload" crossorigin href="/simply-chocolate/assets/vendor-Br5lWEIT.js">
     <link rel="stylesheet" crossorigin href="/simply-chocolate/assets/vendor-Dd_JOzwS.css">
-    <link rel="stylesheet" crossorigin href="/simply-chocolate/assets/index-zLwRA-T_.css">
+    <link rel="stylesheet" crossorigin href="/simply-chocolate/assets/index-BvNIkPVk.css">
   </head>
   <body>
     <header>
@@ -108,9 +108,10 @@
                         </a>
                     </li>
                 </ul>
-                <div class="mm__toggle-theme-box">
+
+                <!-- <div class="mm__toggle-theme-box">
                     <svg width="16" height="16">
-                        <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-sun"></use>
+                        <use href="/img/sprite.svg#icon-sun"></use>
                     </svg>
                     <label class="mm__theme-switch" for="theme-toggle">
                         <input type="checkbox" id="theme-toggle" role="switch" class="theme-toggle-input">
@@ -120,10 +121,33 @@
                         </div>
                     </label>
                     <svg width="16" height="16">
-                        <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-moon"></use>
+                        <use href="/img/sprite.svg#icon-moon"></use>
                     </svg>
                     <label class="nav__theme-switch" for="theme-toggle">
+                </div> -->
+
+                <div class="mm__toggle-theme-box">
+                    <label for="theme-toggle" class="mm__theme-label" aria-label="Choose light theme">
+                        <svg width="16" height="16">
+                            <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-sun"></use>
+                        </svg>
+                    </label>
+                
+                    <label class="nav__theme-switch">
+                        <input type="checkbox" id="theme-toggle" role="switch" class="theme-toggle-input visually-hidden">
+                
+                        <div class="nav__slider">
+                            <span class="nav__circle"></span>
+                        </div>
+                    </label>
+                
+                    <label for="theme-toggle" class="nav__theme-label" aria-label="Choose dark theme">
+                        <svg width="16" height="16">
+                            <use href="/simply-chocolate/assets/sprite-Dl4-IEh0.svg#icon-moon"></use>
+                        </svg>
+                    </label>
                 </div>
+
             </div>
         </div>
     </div>    
@@ -617,13 +641,12 @@
           id="terms"
           class="review-modal__checkbox"
         />
-        <label for="terms" class="review-modal__checkbox-label"
-          >I accept the terms and conditions of the
-          <span class="review-modal__terms-span highlight">Privacy Policy</span>
+        <label for="terms" class="review-modal__checkbox-label">
+          I accept the terms and conditions of the
+          <a href="#" class="review-modal__terms-link highlight">Privacy Policy</a>
         </label>
-        </div>
-        <span id="error-terms" class="review-modal__error-message"></span>
-      
+      </div>
+        <span id="error-terms" class="review-modal__error-message"></span>     
 
       <button type="submit" class="review-modal__submit-btn">Send</button>
     </form>
