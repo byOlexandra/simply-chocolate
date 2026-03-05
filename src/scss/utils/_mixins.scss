@@ -63,7 +63,7 @@
 }
 
 @mixin orangeBtn {
-    background-color: $highlight;
+    background-color: var(--highlight);
 }
 
 @mixin transparentBtn {

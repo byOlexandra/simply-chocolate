@@ -46,7 +46,7 @@
 
     &:hover {
       .mm__close-icon {
-        stroke: $highlight;
+        stroke: var(--highlight);
       }
     }
   }
@@ -92,7 +92,7 @@
       width: 100%;
       height: 4px;
       border-radius: 4px;
-      background-color: $highlight;
+      background-color: var(--highlight);
 
       position: absolute;
       bottom: -10px;
@@ -104,7 +104,7 @@
     }
 
     &:hover {
-      color: $highlight;
+      color: var(--highlight);
     }
 
     &:hover::after {
@@ -126,7 +126,7 @@
     }
 
     a:hover {
-      stroke: $highlight;
+      stroke: var(--highlight);
     }
   }
 
@@ -226,8 +226,9 @@
   }
 
   #theme-toggle:checked + &__slider {
-    background-color: $highlight;
+    background-color: var(--highlight);
   }
+  
   @include desktop {
     display: $hidden;
   }

@@ -136,15 +136,15 @@
     transition: $trans-all;
 
     &:hover {
-      border-color: $highlight;
+      border-color: var(--highlight);
     }
 
     &:focus-within {
-      border-color: $highlight;
+      border-color: var(--highlight);
     }
 
     &:focus + .review-modal__input-icon {
-      stroke: $highlight;
+      stroke: var(--highlight);
     }
 
     @include desktop {
@@ -173,7 +173,7 @@
 
     &:hover,
     &:focus {
-      border-color: $highlight;
+      border-color: var(--highlight);
     }
   }
 
@@ -207,8 +207,8 @@
     transition: $trans-all;
 
     &:checked {
-      background-color: $highlight;
-      border-color: $highlight;
+      background-color: var(--highlight);
+      border-color: var(--highlight);
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath fill='%23fff' d='M12.636 30.427c1.395 0 2.449-0.536 3.163-1.607l15.448-23.28c0.257-0.379 0.446-0.753 0.569-1.121 0.123-0.379 0.184-0.742 0.184-1.088 0-0.96-0.335-1.752-1.004-2.377-0.658-0.636-1.473-0.954-2.444-0.954-0.669 0-1.238 0.134-1.707 0.402-0.457 0.257-0.893 0.703-1.305 1.339l-12.971 20.368-6.494-7.782c-0.703-0.815-1.584-1.222-2.644-1.222-0.993 0-1.813 0.318-2.46 0.954s-0.971 1.434-0.971 2.393c0 0.435 0.067 0.848 0.201 1.238 0.145 0.379 0.407 0.775 0.787 1.188l8.619 10.159c0.792 0.926 1.802 1.389 3.029 1.389z'/%3E%3C/svg%3E");
       background-position: center;
       background-repeat: no-repeat;
@@ -227,7 +227,7 @@
   }
 
   &__submit-btn {
-    background-color: $highlight;
+    background-color: var(--highlight);
     display: block;
     width: 93px;
     height: 41px;

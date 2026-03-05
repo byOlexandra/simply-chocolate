@@ -100,7 +100,7 @@
   }
 
   #theme-toggle:checked + &__slider {
-    background-color: $highlight;
+    background-color: var(--highlight);
   }
 
   &__theme-label {
@@ -127,19 +127,19 @@
       width: 100%;
       height: 4px;
       border-radius: 4px;
-      background-color: $highlight;
+      background-color: var(--highlight);
 
       position: absolute;
       bottom: -10px;
       left: 0;
-      transition: $trans-transform;
+      transition: $trans-all;
 
       transform: scaleX(0);
       transform-origin: bottom right;
     }
 
     &:hover {
-      color: $highlight;
+      color: var(--highlight);
     }
 
     &:hover::after {
@@ -164,8 +164,8 @@
     fill: var(--fill-color);
     transition: $trans-all;
     &:hover {
-      stroke: $highlight;
-      fill: $highlight;
+      stroke: var(--highlight);
+      fill: var(--highlight);
     }
   }
 
@@ -178,7 +178,7 @@
     transition: $trans-stroke;
 
     &:hover {
-      stroke: $highlight;
+      stroke: var(--highlight);
     }
   }
 

@@ -134,7 +134,7 @@
   }
 
   &__sub-btn {
-    background-color: $highlight;
+    background-color: var(--highlight);
     border: none;
     border-radius: 100px;
     color: $white-clr;

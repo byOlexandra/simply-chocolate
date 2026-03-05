@@ -3,6 +3,7 @@
 
 #feedback .feedback {
   padding-top: 60px;
+
   .feedback-slider-container {
     display: flex;
     align-items: center;
@@ -69,7 +70,7 @@
   }
 
   .swiper-pagination-bullet-active {
-    background-color: $highlight;
+    background-color: var(--highlight);
   }
 
   &__title {
@@ -143,7 +144,7 @@
     background-color: transparent;
     border: none;
 
-    color: $highlight;
+    color: var(--highlight);
 
     transition: $trans-transform;
 
@@ -165,7 +166,7 @@
   background-color: transparent;
   color: var(--text-color);
   line-height: 1.8;
-  border: 2px solid $highlight;
+  border: 2px solid var(--highlight);
   border-radius: 100px;
 
   @include flex-center;
