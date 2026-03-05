@@ -24,7 +24,7 @@
 
   &__title {
     font-weight: 500;
-    font-size: 24px;
+    font-size: 1.5rem;
     letter-spacing: -0.02em;
     line-height: 1.17;
     width: 300px;
@@ -32,7 +32,7 @@
     margin-bottom: 32px;
 
     @include tablet {
-      font-size: 28px;
+      font-size: 1.75rem;
     }
   }
 
@@ -41,10 +41,11 @@
       @include flex-center;
       align-items: baseline;
       margin: 0 auto;
-      gap: 32px;
+      gap: 2rem;
       height: 45px;
       width: 704px;
     }
+
     @include desktop {
       margin: 0;
       width: auto;
@@ -67,6 +68,7 @@
 
   &__contacts-li {
     transition: $trans-color;
+
     @include desktop {
       &:hover {
         color: $light-grey;
@@ -99,7 +101,7 @@
     margin-bottom: 32px;
     @include tablet {
       flex-direction: row;
-      gap: 16px;
+      gap: 1rem;
     }
     @include desktop {
       gap: 40px;
@@ -117,7 +119,7 @@
     background-color: transparent;
     caret-color: $white-clr;
     border-radius: 30px;
-    border-width: 1.5px;
+    border-width: 0.125rem;
     border-style: solid;
     padding: 14px 18px;
     outline: none;
@@ -162,7 +164,7 @@
 
   &__error_subscribe {
     color: red;
-    font-size: 12px;
+    font-size: 0.75rem;
     margin-left: 8px;
     margin-top: 4px;
   }

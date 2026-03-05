@@ -13,7 +13,7 @@
   &__title {
     margin: 0 auto;
     text-transform: uppercase;
-    font-size: 20px;
+    font-size: 1.25rem;
     line-height: 1.2;
     letter-spacing: -0.03em;
     text-align: center;
@@ -22,7 +22,7 @@
 
     @include tablet {
       width: 440px;
-      font-size: 24px;
+      font-size: 1.5rem;
     }
     @include desktop {
       margin-bottom: 28px;
@@ -36,6 +36,7 @@
     letter-spacing: -0.02em;
 
     margin-bottom: 32px;
+
     @include tablet {
       width: 486px;
       margin-bottom: 50px;
@@ -46,11 +47,13 @@
     @include flex-column;
     gap: 20px;
     justify-content: center;
+
     @include tablet {
       gap: 32px;
       flex-direction: row;
       flex-wrap: wrap;
     }
+
     @include desktop {
       gap: 19px;
       flex-wrap: nowrap;
@@ -122,7 +125,7 @@
 
   &__overlay-title {
     font-weight: 600;
-    font-size: 18px;
+    font-size: 1.125rem;
     letter-spacing: -0.03em;
     margin-bottom: 8px;
   }
@@ -147,7 +150,7 @@
   }
 
   &__overlay-btn {
-    font-size: 10px;
+    font-size: 0.625rem;
     line-height: 1.2;
     height: 24px;
     padding: 6px 16px;

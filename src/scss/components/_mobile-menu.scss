@@ -78,13 +78,13 @@
 
   &__list-a-item {
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
 
     position: relative;
     transition: $trans-color;
 
     @include tablet {
-      font-size: 18px;
+      font-size: 1.125rem;
     }
 
     &::after {
