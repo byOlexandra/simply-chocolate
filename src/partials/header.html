@@ -1,62 +1,111 @@
 <section id="header">
-    <div class="container header-container">
-        <nav class="nav">
+  <div class="container header-container">
+    <nav class="nav">
+      <a href="#" class="nav__logo-header"
+        ><p>SIMPLY <span class="nav__logo-normal">CHOCOLATE</span></p>
+        <svg class="icon nav__icon-logo" width="21" height="21">
+          <use href="/img/sprite.svg#icon-logo"></use>
+        </svg>
+      </a>
 
-            <a href="#" class="nav__logo-header"><p>SIMPLY <span class="nav__logo-normal">CHOCOLATE</span></p>
-            <svg class="icon nav__icon-logo" width="21" height="21"><use href="/img/sprite.svg#icon-logo"></use></svg>
-            </a>
+      <div class="nav__block">
+        <ul class="nav__list">
+          <li>
+            <a href="#" data-section="hero" class="nav__list-a-item">Home</a>
+          </li>
+          <li>
+            <a href="#tutorial" data-section="tutorial" class="nav__list-a-item"
+              >How it's made?</a
+            >
+          </li>
+          <li>
+            <a href="#feedback" data-section="feedback" class="nav__list-a-item"
+              >Chocolate is loved</a
+            >
+          </li>
+        </ul>
 
-            <div class="nav__block">
-                <ul class="nav__list">
-                    <li><a href="#" data-section="hero" class="nav__list-a-item">Home</a></li>
-                    <li><a href="#tutorial" data-section="tutorial" class="nav__list-a-item">How it's made?</a></li>
-                    <li><a href="#feedback" data-section="feedback" class="nav__list-a-item">Chocolate is loved</a></li>
-                </ul>
+        <div class="nav__toggle-theme-box">
+          <label
+            for="theme-toggle"
+            class="nav__theme-label"
+            aria-label="Choose light theme"
+          >
+            <svg width="16" height="16">
+              <use href="/img/sprite.svg#icon-sun"></use>
+            </svg>
+          </label>
 
-                <div class="nav__toggle-theme-box">
-                    <label for="theme-toggle" class="nav__theme-label" aria-label="Choose light theme">
-                        <svg width="16" height="16">
-                            <use href="/img/sprite.svg#icon-sun"></use>
-                        </svg>
-                    </label>
-                
-                    <label class="nav__theme-switch">
-                        <input type="checkbox" id="theme-toggle" role="switch" class="theme-toggle-input visually-hidden">
-                
-                        <div class="nav__slider">
-                            <span class="nav__circle"></span>
-                        </div>
-                    </label> 
-                
-                    <label for="theme-toggle" class="nav__theme-label" aria-label="Choose dark theme">
-                        <svg width="16" height="16">
-                            <use href="/img/sprite.svg#icon-moon"></use>
-                        </svg>
-                    </label>
-                </div>
+          <label class="nav__theme-switch">
+            <input
+              type="checkbox"
+              id="theme-toggle"
+              role="switch"
+              class="theme-toggle-input visually-hidden"
+            />
 
-                <ul class="nav__sm-list">
-                    <li><button type="button" class="nav__sm-btn-buy" data-open-order aria-label="Open order form">
-                            <svg class="nav__sm-buy-icon" width="24" height="24">
-                                <use href="/img/sprite.svg#icon-basket"></use>
-                            </svg>
-                        </button></li>
-                    <li><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-                        <svg class="nav__sm-icon" width="24" height="24">
-                            <use href="/img/sprite.svg#icon-instagram"></use>
-                        </svg>
-                    </a></li>
-                    <li><a href="https://x.com/" target="_blank" class="nav__sm-icon" rel="noopener noreferrer">
-                        <svg width="24" height="24">
-                            <use href="/img/sprite.svg#icon-twitter"></use>
-                        </svg>
-                    </a></li>
-                </ul>
+            <div class="nav__slider">
+              <span class="nav__circle"></span>
             </div>
+          </label>
 
-            <button type="button" class="nav__burger-btn" data-menu-open>
-                <svg class="nav__burger-icon" width="21" height="18"><use href="/img/sprite.svg#icon-burger"></use></svg>
+          <label
+            for="theme-toggle"
+            class="nav__theme-label"
+            aria-label="Choose dark theme"
+          >
+            <svg width="16" height="16">
+              <use href="/img/sprite.svg#icon-moon"></use>
+            </svg>
+          </label>
+        </div>
+
+        <ul class="nav__sm-list">
+          <li>
+            <button
+              type="button"
+              class="nav__sm-btn-buy"
+              data-open-order
+              aria-label="Open order form"
+            >
+              <svg class="nav__sm-buy-icon" width="24" height="24">
+                <use href="/img/sprite.svg#icon-basket"></use>
+              </svg>
             </button>
-        </nav>
-    </div>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit our Instagram"
+            >
+              <svg class="nav__sm-icon" width="24" height="24">
+                <use href="/img/sprite.svg#icon-instagram"></use>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://x.com/"
+              target="_blank"
+              class="nav__sm-icon"
+              rel="noopener noreferrer"
+              aria-label="Visit our Twitter"
+            >
+              <svg width="24" height="24">
+                <use href="/img/sprite.svg#icon-twitter"></use>
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <button type="button" class="nav__burger-btn" data-menu-open>
+        <svg class="nav__burger-icon" width="21" height="18">
+          <use href="/img/sprite.svg#icon-burger"></use>
+        </svg>
+      </button>
+    </nav>
+  </div>
 </section>

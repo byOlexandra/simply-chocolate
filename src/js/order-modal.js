@@ -12,11 +12,9 @@ const closeBtn = document.querySelector('#closeOrderModal');
 const modalChocolateList = document.querySelector('#modalChocolateList');
 const selectedChocInput = document.getElementById('selectedChocInput');
 const orderForm = document.getElementById('orderForm');
-const deliverySelect = document.getElementById('deliveryMethod');
 const dynamicContainer = document.getElementById('dynamic-fields-container');
 const phoneInput = document.getElementById('userPhone');
 const basketIcons = document.querySelectorAll('[data-open-order]');
-// const form = document.querySelector('.order-modal__form');
 
 const STORAGE_KEY = 'order-form-state';
 
@@ -35,6 +33,7 @@ function initOrderModal() {
       icon.addEventListener('click', openActions);
     });
   }
+  
   if (openOrder && backdrop) {
     openOrder.addEventListener('click', openActions);
   }
@@ -60,7 +59,7 @@ function initOrderModal() {
 }
 
 orderForm.addEventListener('input', e => {
-  const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  const savedData = getSavedData();
 
   const { name, value, type, checked } = e.target;
   if (!name) return;
@@ -127,7 +126,7 @@ function setupSelectionLogic() {
 }
 
 orderForm.addEventListener('input', e => {
-  const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  const savedData = getSavedData();
 
   savedData[e.target.name] = e.target.value;
 
@@ -135,7 +134,7 @@ orderForm.addEventListener('input', e => {
 });
 
 function initFormValues() {
-  const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  const savedData = getSavedData();
   if (!savedData) return;
 
   Object.keys(savedData).forEach((key) => {
@@ -157,7 +156,7 @@ function initFormValues() {
 }
 
 function setupDeliveryLogic() {
-  const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  const savedData = getSavedData();
   const initialMethod = savedData.delivery_method || '';
 
   const selectLib = new TomSelect('#deliveryMethod', {
@@ -172,7 +171,7 @@ function setupDeliveryLogic() {
   }
 
   selectLib.on('change', value => {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+    const data = getSavedData();
     data.delivery_method = value;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
@@ -182,7 +181,7 @@ function setupDeliveryLogic() {
 
 function renderDeliveryFields(method) {
   dynamicContainer.innerHTML = '';
-  const savedData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  const savedData = getSavedData();
 
   if (method === 'nova_poshta') {
     dynamicContainer.innerHTML = `
@@ -315,5 +314,13 @@ function toggleModal(backdrop, isOpen) {
     document.body.classList.add('no-scroll');
   } else {
     document.body.classList.remove('no-scroll');
+  }
+}
+
+function getSavedData() {
+  try {
+    return JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  } catch (e) {
+    return {};
   }
 }
