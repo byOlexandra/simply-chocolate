@@ -152,6 +152,7 @@
       justify-content: flex-start;
     }
   }
+
   &__form-group {
     @include flex-column;
     gap: 4px;
@@ -214,7 +215,7 @@
     border-radius: 8px;
     caret-color: var(--caret-color);
     color: var(--text-color);
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-family: var(--font-family);
 
     transition: $trans-all;
@@ -223,10 +224,10 @@
       font-family: var(--font-family);
     }
 
-    &:hover,
     &:focus {
       border-color: var(--highlight);
     }
+
     @include tablet {
       min-width: 100%;
     }
@@ -332,11 +333,20 @@
       font-size: 1rem;
     }
   }
+
   &.focus {
     .ts-control {
       border-color: var(--highlight);
       background: transparent;
       outline: none;
+
+      &.ts-wrapper.single.input-active {
+        background: transparent;
+      }
+    }
+
+    &.input-active {
+      background: transparent;
     }
   }
 
@@ -356,5 +366,11 @@
         color: $white-clr;
       }
     }
+  }
+}
+
+#orderForm {
+  .ts-wrapper .ts-control {
+    background-color: transparent;
   }
 }
