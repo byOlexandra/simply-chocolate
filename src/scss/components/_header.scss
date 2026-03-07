@@ -42,6 +42,13 @@
     font-style: normal;
   }
 
+  &__icon-logo {
+    fill: transparent;
+    stroke: var(--highlight);
+
+    transition: $trans-all;
+  }
+
   &__block {
     display: $hidden;
 
@@ -55,11 +62,10 @@
   &__toggle-theme-box {
     @include flex-center;
     gap: 6px;
+
     svg {
       stroke: var(--stroke-color);
       fill: var(--stroke-color);
-
-      transition: $trans-stroke;
     }
   }
 
@@ -120,7 +126,6 @@
 
   &__list-a-item {
     position: relative;
-    transition: $trans-color;
 
     &::after {
       content: '';
