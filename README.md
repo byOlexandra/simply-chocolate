@@ -43,8 +43,8 @@ architecture and modern JavaScript practices.
 
 ### 5. Performance & SEO ⚡
 
-- **99/100 Lighthouse Score:** Highly optimized assets and code for near-instant
-  loading.
+- **100/100 Lighthouse Score:** Highly optimized assets and code for
+  near-instant loading.
 - Responsive Design: Seamless experience across mobile, tablet, and desktop
   devices.
 

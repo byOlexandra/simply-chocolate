@@ -2,7 +2,6 @@ import { Notyf } from 'notyf';
 import 'notyf/notyf.min.css';
 import * as yup from 'yup';
 import IMask from 'imask';
-import { closeMenu } from './mobile-menu';
 import TomSelect from 'tom-select';
 import 'tom-select/dist/css/tom-select.css';
 
@@ -24,16 +23,16 @@ function initOrderModal() {
   const openActions = () => {
     toggleModal(backdrop, true);
     mask.value = '';
-    initFormValues()
+    initFormValues();
     clearErrorMessages();
-  }
+  };
 
   if (basketIcons) {
     basketIcons.forEach(icon => {
       icon.addEventListener('click', openActions);
     });
   }
-  
+
   if (openOrder && backdrop) {
     openOrder.addEventListener('click', openActions);
   }
@@ -60,11 +59,10 @@ function initOrderModal() {
 
 orderForm.addEventListener('input', e => {
   const savedData = getSavedData();
-
   const { name, value, type, checked } = e.target;
   if (!name) return;
   if (name === 'customer_phone') {
-  savedData[name] = mask.value; 
+    savedData[name] = mask.value;
   } else if (type === 'checkbox') {
     savedData[name] = checked;
   } else {
@@ -96,7 +94,7 @@ function renderModalOptions(chocolates) {
   modalChocolateList.innerHTML = chocolates
     .map(
       item => `
-            <div class="order__choc-option" data-name="${item.name}">
+            <div class="order__choc-option" data-name="${item.name}" name="chocolate_chosen">
             <p class="order__choc-name">${item.name}</p>
             <p class="order__choc-type">Type: ${item.type}</p>
         </div>`
@@ -108,74 +106,99 @@ function renderModalOptions(chocolates) {
 
 function setupSelectionLogic() {
   const options = document.querySelectorAll('.order__choc-option');
+  const savedData = getSavedData();
+
+  let selectedChocolates = Array.isArray(savedData.chocolate_chosen)
+    ? savedData.chocolate_chosen
+    : savedData.chocolate_chosen
+      ? [savedData.chocolate_chosen]
+      : [];
+
+  if (savedData.chocolate_chosen) {
+    options.forEach(option => {
+      if (option.getAttribute('data-name') === savedData.chocolate_chosen) {
+        option.classList.add('order__choc-option--selected');
+      }
+    });
+  }
+
+  selectedChocInput.value = selectedChocolates.join(', ');
 
   options.forEach(option => {
     option.addEventListener('click', () => {
-      if (option.classList.contains('order__choc-option--selected')) {
-        option.classList.remove('order__choc-option--selected');
+      const productName = option.getAttribute('data-name');
+
+      const isSelected = option.classList.toggle(
+        'order__choc-option--selected'
+      );
+
+      if (isSelected) {
+        if (!selectedChocolates.includes(productName)) {
+          selectedChocolates.push(productName);
+        }
       } else {
-        option.classList.add('order__choc-option--selected');
+        selectedChocolates = selectedChocolates.filter(
+          name => name !== productName
+        );
       }
 
-      const productName = option.getAttribute('data-name');
-      selectedChocInput.value = productName;
-
-      console.log(`Selected: ${productName}`);
+      selectedChocInput.value = selectedChocolates.join(', ');
+      const data = getSavedData();
+      data.chocolate_chosen = selectedChocolates;
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     });
   });
 }
-
-orderForm.addEventListener('input', e => {
-  const savedData = getSavedData();
-
-  savedData[e.target.name] = e.target.value;
-
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(savedData));
-});
 
 function initFormValues() {
   const savedData = getSavedData();
   if (!savedData) return;
 
-  Object.keys(savedData).forEach((key) => {
+  Object.keys(savedData).forEach(key => {
     const field = orderForm.querySelector(`[name="${key}"]`);
-    
+
     if (field) {
       if (key === 'customer_phone') {
         mask.value = savedData[key];
         mask.updateValue();
-      } 
-      else if (field.type === 'checkbox') {
+      } else if (field.type === 'checkbox') {
         field.checked = savedData[key];
-      }
-      else {
+      } else {
         field.value = savedData[key];
       }
     }
   });
 }
 
+let selectLibInstance;
+
 function setupDeliveryLogic() {
   const savedData = getSavedData();
   const initialMethod = savedData.delivery_method || '';
 
-  const selectLib = new TomSelect('#deliveryMethod', {
+  selectLibInstance = new TomSelect('#deliveryMethod', {
     create: false,
+    // controlInput: false,
+    allowEmptyOption: true,
+    hidePlaceholder: false,
     placeholder: 'Select method',
-    controlInput: null,
+    hidePlaceholder: true,
   });
 
   if (initialMethod) {
-    selectLib.setValue(initialMethod);
+    selectLibInstance.setValue(initialMethod);
     renderDeliveryFields(initialMethod);
+  } else {
+    selectLibInstance.clear();
+    renderDeliveryFields('');
   }
 
-  selectLib.on('change', value => {
+  selectLibInstance.on('change', value => {
     const data = getSavedData();
     data.delivery_method = value;
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
 
-   renderDeliveryFields(value);
+    renderDeliveryFields(value);
   });
 }
 
@@ -210,41 +233,63 @@ const maskOptions = {
 const mask = IMask(phoneInput, maskOptions);
 
 function handleSubmission() {
-  if (orderForm) {
-    orderForm.addEventListener('submit', async e => {
-      e.preventDefault();
-      if (!selectedChocInput.value) {
-        notyf.error('Please choose a chocolate first');
-        return;
+  if (!orderForm) return;
+
+  orderForm.addEventListener('submit', async e => {
+    e.preventDefault();
+
+    const activeOptions = document.querySelectorAll(
+      '.order__choc-option--selected'
+    );
+
+    if (activeOptions.length === 0) {
+      notyf.error('Please choose a chocolate first');
+      return;
+    }
+
+    clearErrorMessages();
+
+    const formData = new FormData(orderForm);
+    const orderDetails = Object.fromEntries(formData.entries());
+
+    orderDetails.customer_phone = mask.value;
+    orderDetails.is_gift = orderForm.elements.is_gift.checked;
+
+    orderDetails.selected_chocolate = selectedChocInput.value;
+
+    try {
+      await schema.validate(orderDetails, { abortEarly: false });
+
+      notyf.success(
+        `Thank you, ${orderDetails.customer_name}! Your order for ${activeOptions.length} items has been received.`
+      );
+
+      orderForm.reset();
+      if (selectLibInstance) {
+        selectLibInstance.clear();
       }
+      dynamicContainer.innerHTML = '';
+
+      activeOptions.forEach(option => {
+        option.classList.remove('order__choc-option--selected');
+      });
+      selectedChocInput.value = '';
+
+      mask.value = '';
+      mask.updateValue();
+
+      localStorage.removeItem(STORAGE_KEY);
 
       clearErrorMessages();
-
-      const formData = new FormData(orderForm);
-      const orderDetails = Object.fromEntries(formData.entries());
-
-      orderDetails.customer_phone = mask.value;
-      orderDetails.is_gift = orderForm.elements.is_gift.checked;
-
-      try {
-        await schema.validate(orderDetails, { abortEarly: false });
-        notyf.success(
-          `Thank you, ${orderDetails.customer_name}! Your order for ${orderDetails.selected_chocolate} has been received.`
-        );
-        orderForm.reset();
-        localStorage.removeItem(STORAGE_KEY);
-        mask.value = '';
-        mask.updateValue();
-      } catch (error) {
-        if (error.inner) {
-          error.inner.forEach(err => {
-            const errSpan = document.querySelector(`#error-${err.path}`);
-            if (errSpan) errSpan.textContent = err.message;
-          });
-        }
+    } catch (error) {
+      if (error.inner) {
+        error.inner.forEach(err => {
+          const errSpan = document.querySelector(`#error-${err.path}`);
+          if (errSpan) errSpan.textContent = err.message;
+        });
       }
-    });
-  }
+    }
+  });
 }
 
 const notyf = new Notyf({
@@ -276,7 +321,7 @@ const schema = yup.object().shape({
       const clean = val.replace(/\D/g, '');
       return clean.length === 12;
     }),
-  customer_email: yup.string().required('You email is required').email(),
+  customer_email: yup.string().email(),
   delivery_method: yup
     .string()
     .oneOf(deliveryWays)
@@ -303,12 +348,12 @@ const schema = yup.object().shape({
 
 function clearErrorMessages() {
   document
-      .querySelectorAll('.review-modal__error-message')
-      .forEach(el => (el.textContent = ''));
+    .querySelectorAll('.order__error-message')
+    .forEach(el => (el.textContent = ''));
 }
 
 function toggleModal(backdrop, isOpen) {
-    backdrop.classList.toggle('is-open', isOpen);
+  backdrop.classList.toggle('is-open', isOpen);
 
   if (isOpen) {
     document.body.classList.add('no-scroll');

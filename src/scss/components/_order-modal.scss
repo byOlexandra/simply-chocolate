@@ -201,6 +201,11 @@
       color: $black-clr;
       background-color: $light-grey;
     }
+
+    &::placeholder {
+      font-size: 1rem;
+      font-family: var(--font-family);
+    }
   }
 
   &__textarea {
@@ -373,4 +378,9 @@
   .ts-wrapper .ts-control {
     background-color: transparent;
   }
+}
+
+#deliveryMethod-ts-control {
+  font-size: 1rem;
+  font-family: var(--font-family);
 }
