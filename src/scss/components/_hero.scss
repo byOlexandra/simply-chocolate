@@ -60,6 +60,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  width: 335px;
+  height: 620px;
 
   @media only screen and (min-resolution: 192dpi) {
     background-image: url(/img/hero/hero-mobile@2x.webp);
