@@ -4,49 +4,46 @@ A technical showcase of a premium chocolate landing page. This project focuses
 on implementing complex frontend features using a clean, professional
 architecture and modern JavaScript practices.
 
+**[Live Demo](https://simply-chocolate-ig4x.vercel.app/)**
+
+---
+
+## ✨ Key Features
+
+- **Performance & SEO 100/100**: Fully optimized for lightning-fast loading
+  speeds and high search engine visibility.
+- **Full Responsiveness**: Seamlessly adapts to all screen sizes (Mobile,
+  Tablet, Desktop).
+- **Interactive UX**: Smooth animations, modal windows, and intuitive
+  navigation.
+- **Custom Form Elements**: Enhanced form interaction using modern selection
+  libraries for a premium feel.
+
 ## 🛠 Tech Stack
 
-- **Vanilla JavaScript** — Custom logic for DOM manipulation and state
-  management.
-- **SCSS with BEM Methodology** — Scalable, modular, and maintainable CSS
-  architecture.
-- **Yup** — Schema-based validation for robust form handling.
-- **Vite** — Modern frontend tooling for efficient asset bundling.
+- **HTML5** – Semantic and accessible markup.
+- **SCSS** – Modular styles with variables, mixins, and a clear architecture.
+- **JavaScript (ES6+)** – Interactive UI logic and data handling.
+- **Vite** – Modern build tool for optimized asset bundling.
+- **TomSelect** – Integrated for advanced, styled, and user-friendly dropdown
+  menu (delivery selection).
+- **Swiper.js** – Used for smooth, touch-enabled feedback sliders.
 
-## ✨ Technical Features
+## 🚀 Optimization Results
 
-### 1. Dynamic Content 📝
+According to **Google Lighthouse**, the project achieves perfect scores in core
+metrics:
 
-- **Dynamic Rendering:** The "Chocolate is loved" section is generated
-  dynamically via JavaScript rather than being hardcoded in HTML.
+- **Performance: 100** — Optimized assets, fast Time to Interactive, and
+  efficient resource loading.
+- **SEO: 100** — Proper metadata, header hierarchy, and crawlable structure.
 
-### 2. Advanced Form Validation ✅
+**Key optimizations included:**
 
-- Integrated **Yup** to create a strict validation schema for the review form.
-- The system validates user input in real-time for:
-  - Email syntax and phone number formatting.
-  - Field requirements and character constraints.
-- This ensures data integrity and a smooth user experience.
-
-### 3. State-Aware Theme Toggle 🌗
-
-- Implemented a custom **Dark/Light mode** switcher.
-- The theme state is managed via JavaScript and stored in the browser to respect
-  the user's visual preference during subsequent visits.
-
-### 4. Professional CSS Architecture 🎨
-
-- Developed using **BEM (Block Element Modifier)** naming conventions to ensure
-  a flat CSS hierarchy and prevent style leakage.
-- Utilizes advanced SCSS features including global variables, mixins for styling
-  consistency, and a modular file structure.
-
-### 5. Performance & SEO ⚡
-
-- **100/100 Lighthouse Score:** Highly optimized assets and code for
-  near-instant loading.
-- Responsive Design: Seamless experience across mobile, tablet, and desktop
-  devices.
+- **Image Optimization**: Using next-gen formats (WebP) and responsive image
+  sets.
+- **Clean Code**: Minified CSS/JS and efficient DOM management.
+- **Accessibility (A11y)**: Proper ARIA labels and keyboard navigation support.
 
 ## 🚀 Quick Start
 
